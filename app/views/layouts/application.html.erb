@@ -3,7 +3,7 @@
   <head>
     <title><%= content_for(:title) || "Myapp" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,14 +13,83 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+<!--    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <!-- <main class="container mx-auto mt-28 px-5 flex">-->
       <%= yield %>
-    </main>
+    <!-- </main>-->
   </body>
+
+  <footer class="bg-white dark:bg-gray-900">
+    <div class="container px-6 py-8 mx-auto">
+      <div class="md:flex md:-mx-3 md:items-center md:justify-between">
+        <div class="md:mx-3 shrink-0 md:mt-0 md:w-auto">
+          <a href="#" class="inline-flex items-center justify-center w-full px-4 py-2 text-sm text-white duration-300 bg-gray-800 rounded-lg gap-x-3 hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+            <span>Sign Up Now</span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <hr class="py-6 border-gray-200 md:my-10 dark:border-gray-700">
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div>
+          <p class="font-semibold text-gray-800 dark:text-white">Quick Link</p>
+
+          <div class="flex flex-col items-start mt-5 space-y-2">
+            <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Contact Us</a>
+            <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Get a Quote</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-semibold text-gray-800 dark:text-white">Company</p>
+
+          <div class="flex flex-col items-start mt-5 space-y-2">
+            <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Services</a>
+            <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Who We Are</a>
+            <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Offices</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-semibold text-gray-800 dark:text-white">Tracking</p>
+
+          <div class="flex flex-col items-start mt-5 space-y-2">
+            <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Track Shipment</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-semibold text-gray-800 dark:text-white">Support</p>
+
+          <div class="flex flex-col items-start mt-5 space-y-2">
+            <a href="#" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">FAQ</a>
+            <a class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">+1 (905) 677-2796</a>
+            <a class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">TFG-Trade@trustfreightglobal.com</a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="py-6 border-gray-200 md:my-10 dark:border-gray-700">
+
+      <div class="flex flex-col items-center justify-between sm:flex-row">
+        <a href="#">
+          <img class="h-12" src="/icon.png" alt="Trustfreight Global">
+        </a>
+
+        <p class="mt-4 text-sm text-gray-500 sm:mt-0 dark:text-gray-300">© 2024 Trustfreight Global, Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </html>

@@ -2,8 +2,13 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
+    './app/views/about/about.html.erb',
+    './app/views/contact/contact.html.erb',
+    './app/views/faq/faq.html.erb',
     './app/views/index/index.html.erb',
-    './app/views/index/*.*'
+    './app/views/quote/quote.html.erb',
+    './app/views/service/service.html.erb',
+    './app/views/tracking/tracking.html.erb'
   ],
   theme: {
     extend: {
