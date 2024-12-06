@@ -23,7 +23,7 @@
 </div>
 
 <!-- Navbar Section -->
-<nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
+<nav x-data="{ isOpen: false }" class="relative bg-white shadow">
   <div class="px-20 py-4 md:flex md:justify-between sm:px-6 md:px-6 md:items-center">
     <div class="flex items-center justify-between">
       <a href="/index">
@@ -32,7 +32,7 @@
 
       <!-- Mobile menu button -->
       <div class="flex lg:hidden">
-        <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+        <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
           <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
           </svg>
@@ -45,308 +45,153 @@
     </div>
 
     <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-    <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
+    <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
       <div class="flex flex-col md:flex-row md:mx-6">
-        <a href="/index" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">Home</a>
-        <a href="/service" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">Services</a>
-        <a href="/tracking" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">Tracking</a>
-        <a href="/about" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">About</a>
-        <a href="/contact" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">Contact</a>
-        <a href="/faq" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">FAQ</a>
+        <a href="/index" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">Home</a>
+        <a href="/service" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">Services</a>
+        <a href="/tracking" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">Tracking</a>
+        <a href="/about" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">About</a>
+        <a href="/contact" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">Contact</a>
+        <a href="/faq" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">FAQ</a>
       </div>
 
       <div class="flex justify-between md:block">
-        <a class="relative text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300">
-          <button type="button" class="text-white bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><%= link_to 'Quote', quote_path %></button>
+        <a class="relative text-gray-700 transition-colors duration-300 transform hover:text-gray-600">
+          <button type="button" class="text-white bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center"><%= link_to 'Quote', quote_path %></button>
         </a>
       </div>
     </div>
   </div>
 </nav>
 
+<!-- Header Section -->
+<section>
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-4 md:items-center md:gap-8">
+<!--      <div class="md:col-span-1">-->
+<!--        <div class="max-w-lg md:max-w-none">-->
+<!--          <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl">-->
+<!--            Trustfreight offers an extensive range of services-->
+<!--          </h2>-->
+
+<!--          <p class="mt-4 text-gray-700">-->
+<!--            Explore more by clicking each of our services or contact us below.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+
+      <div class="md:col-span-8">
+        <img
+          src="<%= asset_path('service_header.jpg') %>"
+          class="rounded"
+          alt=""
+          />
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
+
 <!-- Service List -->
-<section>
-  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-    <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
-      <div class="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left items-center">
-        <h2 class="text-3xl font-bold sm:text-4xl">Trustfreight offering</h2>
+<section class="bg-white">
+  <div class="container px-6 mx-auto">
+    <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl">Trustfreight offers an extensive range of services
+    </h1>
 
-        <p class="mt-4 text-gray-600">
-          a extensive range of services.<br><br>
-          Explore more by clicking one of our services.
-        </p>
-      </div>
+    <p class="mt-4 text-xl text-center text-gray-500">
+      Explore more by clicking each of our services or contact us below.
+    </p>
 
-      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-        <a
-          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#airfreight"
-        >
-          <span class="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              class="size-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
+    <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 lg:grid-cols-4">
+      <a href="#ocean" class="block">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('by_sea.jpg') %>')">
+          <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">By Ocean</h2>
+            <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
+          </div>
+        </div>
+      </a>
 
-          <h2 class="mt-2 font-bold">Air Freight</h2>
+      <a href="#air" class="block">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/7/7c/Unloading_JAL_747.jpg')">
+          <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">By Air
+            </h2>
+            <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
+          </div>
+        </div>
+      </a>
 
-          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-          </p>
-        </a>
+      <a href="#ground" class="block">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('truck3_card.jpg') %>')">
+          <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">By Ground Domestic and Cross-border
+            </h2>
+            <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
+          </div>
+        </div>
+      </a>
 
-        <a
-          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#oceanfreight"
-        >
-          <span class="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              class="size-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
+      <a href="#dangerousgoods" class="block">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('dangerous_cargo2_card.jpg') %>')">
+          <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Perishable, Temperature Control and Dangerous Goods</h2>
+            <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
+          </div>
+        </div>
+      </a>
+    </div>
 
-          <h2 class="mt-2 font-bold">Ocean Freight</h2>
+    <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 lg:grid-cols-4">
+      <a href="#specializedcargo" class="block">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('specialized_cargo3_card.jpg') %>')">
+          <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Multi-Modal and specialized cargo</h2>
+            <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
+          </div>
+        </div>
+      </a>
 
-          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-          </p>
-        </a>
+      <a href="#3pl" class="block">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('warehouse_card.jpg') %>')">
+          <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Warehousing and 3PL</h2>
+            <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
+          </div>
+        </div>
+      </a>
 
-        <a
-          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#warehousingtrucking"
-        >
-          <span class="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              class="size-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
+      <a href="#personneleffect" class="block">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('relocation_card.jpg') %>')">
+          <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Personnel Effects, International Moving and Relocation Services
+            </h2>
+            <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
+          </div>
+        </div>
+      </a>
 
-          <h2 class="mt-2 font-bold">Warehousing and Trucking</h2>
-
-          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-          </p>
-        </a>
-
-        <a
-          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#dangerousspecialized"
-        >
-          <span class="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              class="size-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
-
-          <h2 class="mt-2 font-bold">Dangerous Goods and Specialized Cargo</h2>
-
-          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-          </p>
-        </a>
-
-        <a
-          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#personneleffect"
-        >
-          <span class="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              class="size-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
-
-          <h2 class="mt-2 font-bold">Personnel Effect</h2>
-
-          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-          </p>
-        </a>
-
-        <a
-          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#customs"
-        >
-          <span class="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              class="size-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
-
-          <h2 class="mt-2 font-bold">Customs Clearance and Consultation</h2>
-
-          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-          </p>
-        </a>
-
-        <a
-          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-          href="#insurance"
-        >
-          <span class="inline-block rounded-lg bg-gray-50 p-3">
-            <svg
-              class="size-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-              ></path>
-            </svg>
-          </span>
-
-          <h2 class="mt-2 font-bold">Insurance</h2>
-
-          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
-          </p>
-        </a>
-      </div>
+      <a href="#customs" class="block">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('workers_card.jpg') %>')">
+          <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Customs Clearance and Insurance
+            </h2>
+            <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- Air Freight Section -->
-<section>
-  <div id="airfreight" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
-      <div class="relative z-10 lg:py-16">
-        <div class="relative h-64 sm:h-80 lg:h-full">
-          <img
-            alt=""
-            src="<%= asset_path('air_freight.jpg') %>"
-            class="absolute inset-0 h-full w-full object-cover"
-            />
-        </div>
-      </div>
-
-      <div class="relative flex items-center bg-gray-100">
-        <span
-          class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
-        ></span>
-
-        <div class="p-8 sm:p-16 lg:p-24">
-          <h2 class="text-2xl font-bold sm:text-3xl">
-            Air Freight
-          </h2>
-
-          <p class="mt-4 text-gray-600">
-            Trustfreight provides professional air freight service for international and domestic air freight shipments.
-            As an experienced freight forwarder capable of moving all types of air freight, we offer air freight solutions and services to suit any requirement.
-            From a single shipment to a complete logistics plan, Trustfreight gets your product delivered, worry-free, across the country or anywhere on the globe.
-            Request a quote from Trustfreight today for your transportation needs to take advantage of the freight solutions and services available from the team at Trustfreight.
-          </p>
-
-<!--          <a-->
-<!--            href="#"-->
-<!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-<!--          >-->
-<!--            Get in Touch-->
-<!--          </a>-->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
 
 <!-- Ocean Freight Section -->
 <section>
-  <div id="oceanfreight" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+  <div id="ocean" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
-      <!-- Content Column (Moved to the right side) -->
+      <!-- Content Column -->
       <div class="relative flex items-center bg-gray-100">
         <span
           class="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"
@@ -372,12 +217,12 @@
         </div>
       </div>
 
-      <!-- Image Column (Moved to the left side) -->
+      <!-- Image Column -->
       <div class="relative z-10 lg:py-16">
         <div class="relative h-64 sm:h-80 lg:h-full">
           <img
             alt=""
-            src="<%= asset_path('sea_freight3.jpg') %>"
+            src="<%= asset_path('by_sea.jpg') %>"
             class="absolute inset-0 h-full w-full object-cover"
             />
         </div>
@@ -386,15 +231,17 @@
   </div>
 </section>
 
-<!-- Warehousing and Trucking Section -->
+<hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
+
+<!-- Air Freight Section -->
 <section>
-  <div id="warehousingtrucking" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+  <div id="air" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
       <div class="relative z-10 lg:py-16">
         <div class="relative h-64 sm:h-80 lg:h-full">
           <img
             alt=""
-            src="<%= asset_path('trucking.jpg') %>"
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Unloading_JAL_747.jpg"
             class="absolute inset-0 h-full w-full object-cover"
             />
         </div>
@@ -407,101 +254,14 @@
 
         <div class="p-8 sm:p-16 lg:p-24">
           <h2 class="text-2xl font-bold sm:text-3xl">
-            Warehousing and Trucking
+            Air Freight
           </h2>
 
           <p class="mt-4 text-gray-600">
-            Trustfreight Global provides comprehensive warehousing solutions, offering both short-term and long-term storage options tailored to your specific needs.
-            Our team of experts works closely with you to create customized solutions for efficient cargo handling, from storage to distribution.<br><br>
-            Alongside our warehousing services, we specialize in reliable road freight services, including Full Truckload (FTL) for larger shipments, Less Than Truckload (LTL) for smaller deliveries, and Expedited Freight for urgent needs.
-            With a focus on efficiency, safety, and customer satisfaction, Trustfreight ensures that your cargo is delivered on time and without hassle.
-          </p>
-
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-          <!--          >-->
-          <!--            Get in Touch-->
-          <!--          </a>-->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Dangerous Goods and Specialized Cargo Section -->
-<section>
-  <div id="dangerousspecialized" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
-      <!-- Content Column (Moved to the right side) -->
-      <div class="relative flex items-center bg-gray-100">
-        <span
-          class="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"
-        ></span>
-
-        <div class="p-8 sm:p-16 lg:p-24">
-          <h2 class="text-2xl font-bold sm:text-3xl">
-            Dangerous Goods and Specialized Cargo
-          </h2>
-
-          <p class="mt-4 text-gray-600"> <!-- todo -->
-            [TBC]
-            Trustfreight offers comprehensive ocean freight services for both LCL (Less-than-Container Load) and FCL (Full Container Load) international shipments.
-            Whether you're importing full containers from any global destination or exporting oversized cargo, Trustfreight provides reliable logistics solutions designed to ensure timely delivery of your goods.<br><br>
-            Contact us today to request a quote and explore our tailored transportation services, backed by our experienced team of logistics professionals.
-          </p>
-
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-          <!--          >-->
-          <!--            Get in Touch-->
-          <!--          </a>-->
-        </div>
-      </div>
-
-      <!-- Image Column (Moved to the left side) -->
-      <div class="relative z-10 lg:py-16">
-        <div class="relative h-64 sm:h-80 lg:h-full">
-          <img
-            alt=""
-            src="<%= asset_path('caution.jpg') %>"
-            class="absolute inset-0 h-full w-full object-cover"
-            />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Personnel Effect Section -->
-<section>
-  <div id="personneleffect" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
-      <div class="relative z-10 lg:py-16">
-        <div class="relative h-64 sm:h-80 lg:h-full">
-          <img
-            alt=""
-            src="<%= asset_path('antique.jpg') %>"
-            class="absolute inset-0 h-full w-full object-cover"
-            />
-        </div>
-      </div>
-
-      <div class="relative flex items-center bg-gray-100">
-        <span
-          class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
-        ></span>
-
-        <div class="p-8 sm:p-16 lg:p-24">
-          <h2 class="text-2xl font-bold sm:text-3xl">
-            Personnel Effect
-          </h2>
-
-          <p class="mt-4 text-gray-600"> <!-- todo -->
-            [TBC]
             Trustfreight provides professional air freight service for international and domestic air freight shipments.
-            As an experienced freight forwarder capable of moving all types of air freight, we offer air freight solutions and services to suit any requirement.<br><br>
+            As an experienced freight forwarder capable of moving all types of air freight, we offer air freight solutions and services to suit any requirement.
+          </p>
+          <p class="mt-4 text-gray-600">
             From a single shipment to a complete logistics plan, Trustfreight gets your product delivered, worry-free, across the country or anywhere on the globe.
             Request a quote from Trustfreight today for your transportation needs to take advantage of the freight solutions and services available from the team at Trustfreight.
           </p>
@@ -518,9 +278,126 @@
   </div>
 </section>
 
-<!-- Customs Clearance and Consultation Section -->
+<hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
+
+<!-- Ground Domestic Section -->
 <section>
-  <div id="customs" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+  <div id="ground" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
+      <div class="relative flex items-center bg-gray-100">
+        <span
+          class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
+        ></span>
+
+        <div class="p-8 sm:p-16 lg:p-24">
+          <h2 class="text-2xl font-bold sm:text-3xl">
+            By Ground Domestic and Cross-border Services
+          </h2>
+
+          <p class="mt-4 text-gray-600">
+            Trustfreight Global specializes in reliable road freight services, offering both Full Truckload (FTL) and Less Than Truckload (LTL) options for a range of shipment sizes, as well as expedited freight for urgent deliveries.
+            As a seasoned freight forwarder, we provide tailored transportation solutions for both domestic and cross-border shipments, ensuring efficiency, safety, and customer satisfaction.
+          </p>
+          <p class="mt-4 text-gray-600">
+            Whether you require a single shipment or a complete logistics plan, Trustfreight Global guarantees your cargo is delivered on time, hassle-free, and across the continent.
+          </p>
+
+          <!--          <a-->
+          <!--            href="#"-->
+          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
+          <!--          >-->
+          <!--            Get in Touch-->
+          <!--          </a>-->
+        </div>
+      </div>
+
+      <div class="relative z-10 lg:py-16">
+        <div class="relative h-64 sm:h-80 lg:h-full">
+          <img
+            alt=""
+            src="<%= asset_path('truck4.jpg') %>"
+            class="absolute inset-0 h-full w-full object-cover"
+            />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
+
+<!-- Dangerous Goods Section -->
+<section>
+  <div id="dangerousgoods" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
+      <!-- Image Column (Moved to the left side) -->
+<!--      <div class="relative z-10 lg:py-16">-->
+<!--        <div class="relative h-64 sm:h-80 lg:h-full">-->
+<!--          <img-->
+<!--            alt=""-->
+<!--            src="<%#= asset_path('dangerous_cargo2_card') %>"-->
+<!--            class="absolute inset-0 h-full w-full object-cover"-->
+<!--            />-->
+<!--        </div>-->
+<!--      </div>-->
+      <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12">
+        <div class="-m-1 flex flex-wrap md:-m-2">
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('dangerous_cargo3.jpg') %>" />
+            </div>
+          </div>
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('perishable1.jpg') %>" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Column (Moved to the right side) -->
+      <div class="relative flex items-center bg-gray-100">
+        <span
+          class="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"
+        ></span>
+
+        <div class="p-8 sm:p-16 lg:p-24">
+          <h2 class="text-2xl font-bold sm:text-3xl">
+            Perishable, Temperature Control and Dangerous Goods
+          </h2>
+
+          <p class="mt-4 text-gray-600">
+            At Trustfreight Global, we specialize in handling perishable cargo, ensuring that product damage and spoilage are completely avoided through our integrated service from cradle to grave.
+            Our extensive expertise also extends to the safe transportation of dangerous and hazardous substances.
+          </p>
+          <p class="mt-4 text-gray-600">
+            With our staff trained in IMDG, Transport Canada, IATA, and all relevant regulations, we are fully equipped to manage the shipment of hazardous goods via ocean, air, road, or rail.
+            Whether it's temperature-sensitive cargo or dangerous goods, Trustfreight Global guarantees safe, efficient, and compliant handling of your shipments.
+          </p>
+
+          <!--          <a-->
+          <!--            href="#"-->
+          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
+          <!--          >-->
+          <!--            Get in Touch-->
+          <!--          </a>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
+
+<!-- Specialized Cargo Section -->
+<section>
+  <div id="specializedcargo" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
       <!-- Content Column (Moved to the right side) -->
       <div class="relative flex items-center bg-gray-100">
@@ -530,13 +407,16 @@
 
         <div class="p-8 sm:p-16 lg:p-24">
           <h2 class="text-2xl font-bold sm:text-3xl">
-            Customs Clearance and Consultation
+            Multi-Modal and Specialized cargo
           </h2>
 
           <p class="mt-4 text-gray-600">
-            Trustfreight Global offers comprehensive customs brokerage services, including customs clearance, import and export documentation, and compliance consulting.
-            We also provide insurance coverage for your shipments, protecting your cargo against loss, damage, or theft.
-            This ensures that your shipments are cleared quickly and efficiently, saving you time and money.
+            Trustfreight Global provides robust Multi-Modal and Specialized Cargo services, offering flexible and efficient transportation solutions for a wide range of industries.
+            By combining various modes of transport—air, sea, road, and rail—we ensure timely and cost-effective delivery of your shipments, regardless of size or destination.
+          </p>
+          <p class="mt-4 text-gray-600">
+            Our expertise in handling specialized cargo allows us to safely manage oversized, heavy, and high-value goods that require tailored solutions and precise handling.
+            With an emphasis on reliability, safety, and adaptability, Trustfreight Global delivers customized logistics that meet your unique cargo requirements.
           </p>
 
           <!--          <a-->
@@ -553,7 +433,7 @@
         <div class="relative h-64 sm:h-80 lg:h-full">
           <img
             alt=""
-            src="<%= asset_path('workers.jpg') %>"
+            src="<%= asset_path('specialized_cargo1.jpg') %>"
             class="absolute inset-0 h-full w-full object-cover"
             />
         </div>
@@ -562,15 +442,17 @@
   </div>
 </section>
 
-<!-- Insurance Section -->
+<hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
+
+<!-- Warehousing and 3PL Section -->
 <section>
-  <div id="insurance" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+  <div id="3pl" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
       <div class="relative z-10 lg:py-16">
         <div class="relative h-64 sm:h-80 lg:h-full">
           <img
             alt=""
-            src="<%= asset_path('secure.jpg') %>"
+            src="<%= asset_path('warehouse.jpg') %>"
             class="absolute inset-0 h-full w-full object-cover"
             />
         </div>
@@ -583,14 +465,14 @@
 
         <div class="p-8 sm:p-16 lg:p-24">
           <h2 class="text-2xl font-bold sm:text-3xl">
-            Insurance
+            Warehousing and 3PL
           </h2>
 
           <p class="mt-4 text-gray-600">
-            We provide cargo insurance for all transportation needs, covering various destinations and cargo types.
-            Insurance options range from full coverage to more minimal protection. Working with multiple insurance providers, we offer the best rates for our customers.
-            Quotations are typically available the same day, with responses from underwriters within one business day if needed.
-            For personal effects or special cargo, additional forms are required. Coverage is bound before pick-up and remains effective until delivery.
+            Trustfreight Global offers a wide range of warehousing services to meet your specific needs.
+            From storage to distribution, we have the expertise to handle your cargo with care.
+            Our team of experts will work with you to develop a customized solution that meets your unique requirements.
+            Whether you need short-term storage or long-term warehousing, we have the facilities and resources to meet your needs.
           </p>
 
           <!--          <a-->
@@ -605,6 +487,103 @@
   </div>
 </section>
 
+<hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
+
+<!-- Personnel Effects Section -->
+<section>
+  <div id="personneleffect" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
+      <div class="relative flex items-center bg-gray-100">
+        <span
+          class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
+        ></span>
+
+        <div class="p-8 sm:p-16 lg:p-24">
+          <h2 class="text-2xl font-bold sm:text-3xl">
+            Personnel Effects, International Moving and Relocation Services
+          </h2>
+
+          <p class="mt-4 text-gray-600">
+            At Trustfreight Global, we specialize in providing seamless Personnel Effects, International Moving, and Relocation Services for individuals and families making international transitions.
+            Whether you’re relocating for work, education, or personal reasons, we ensure that your belongings are packed, shipped, and delivered with the utmost care.
+          </p>
+          <p class="mt-4 text-gray-600">
+            Our services include expert assistance with customs clearance, detailed logistics planning, and door-to-door delivery, all tailored to meet your specific needs.
+            With a focus on efficiency and reliability, Trustfreight Global takes the stress out of international relocation, allowing you to focus on your new journey.
+          </p>
+
+          <!--          <a-->
+          <!--            href="#"-->
+          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
+          <!--          >-->
+          <!--            Get in Touch-->
+          <!--          </a>-->
+        </div>
+      </div>
+
+      <div class="relative z-10 lg:py-16">
+        <div class="relative h-64 sm:h-80 lg:h-full">
+          <img
+            alt=""
+            src="<%= asset_path('relocation.jpg') %>"
+            class="absolute inset-0 h-full w-full object-cover"
+            />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
+
+<!-- Customs Clearance and Insurance -->
+<section>
+  <div id="customs" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
+      <!-- Image Column (Moved to the left side) -->
+      <div class="relative z-10 lg:py-16">
+        <div class="relative h-64 sm:h-80 lg:h-full">
+          <img
+            alt=""
+            src="<%= asset_path('workers_card.jpg') %>"
+            class="absolute inset-0 h-full w-full object-cover"
+            />
+        </div>
+      </div>
+
+      <!-- Content Column (Moved to the right side) -->
+      <div class="relative flex items-center bg-gray-100">
+        <span
+          class="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"
+        ></span>
+
+        <div class="p-8 sm:p-16 lg:p-24">
+          <h2 class="text-2xl font-bold sm:text-3xl">
+            Insurance, Customs clearance, PARS, CARM
+          </h2>
+
+          <p class="mt-4 text-gray-600">
+            Trustfreight Global offers comprehensive customs brokerage services, including customs clearance, import and export documentation, and compliance consulting.
+            We leverage advanced systems like CARM (Canada's Advance Commercial Information system) and PARS (Pre-Arrival Review System) to streamline the customs process, ensuring faster and more efficient shipment clearance.
+          </p>
+
+          <p class="mt-4 text-gray-600">
+            CARM helps process shipments more quickly by submitting electronic information ahead of arrival, while PARS facilitates pre-arrival approval for shipments, reducing delays at the border.
+            Additionally, we provide insurance coverage for your shipments, protecting your cargo against loss, damage, or theft.
+            This combination of advanced technology and expert services ensures that your shipments are cleared quickly and efficiently, saving you time and money.
+          </p>
+
+          <!--          <a-->
+          <!--            href="#"-->
+          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
+          <!--          >-->
+          <!--            Get in Touch-->
+          <!--          </a>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
     <!-- Making banner invisible-->
