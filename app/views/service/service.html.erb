@@ -1,68 +1,8 @@
 <!-- Banner Section -->
-<div id="banner" class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
-  <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
-    <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
-  </div>
-  <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
-    <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
-  </div>
-  <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-    <p class="text-sm/6 text-gray-900">
-      <strong class="font-semibold">Don't wait...</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Register TODAY for your CARM account. Making sure your business registration is ready by October 24, 2024.
-    </p>
-    <a href="/faq" class="flex-none rounded-full bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300  px-3.5 py-1 text-sm font-semibold text-white shadow-sm">Learn more <span aria-hidden="true">&rarr;</span></a>
-  </div>
-  <div class="flex flex-1 justify-end">
-    <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]" onclick="hideBanner()">
-      <span class="sr-only">Dismiss</span>
-      <svg class="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-        <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
-      </svg>
-    </button>
-  </div>
-</div>
+<%= render 'shared/banner' %>
 
 <!-- Navbar Section -->
-<nav x-data="{ isOpen: false }" class="relative bg-white shadow">
-  <div class="px-20 py-4 md:flex md:justify-between sm:px-6 md:px-6 md:items-center">
-    <div class="flex items-center justify-between">
-      <a href="/index">
-        <img class="w-auto h-16 sm:h-16 md:h-16 xl:h-32" src="/icon.png" alt="Trustfreight Global">
-      </a>
-
-      <!-- Mobile menu button -->
-      <div class="flex lg:hidden">
-        <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
-          <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-          </svg>
-
-          <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-    <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
-      <div class="flex flex-col md:flex-row md:mx-6">
-        <a href="/index" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">Home</a>
-        <a href="/service" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">Services</a>
-        <a href="/tracking" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">Tracking</a>
-        <a href="/about" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">About</a>
-        <a href="/contact" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">Contact</a>
-        <a href="/faq" class="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0">FAQ</a>
-      </div>
-
-      <div class="flex justify-between md:block">
-        <a class="relative text-gray-700 transition-colors duration-300 transform hover:text-gray-600">
-          <button type="button" class="text-white bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center"><%= link_to 'Quote', quote_path %></button>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
+<%= render 'shared/navbar' %>
 
 <!-- Header Section -->
 <section>
@@ -340,7 +280,7 @@
 <!--            />-->
 <!--        </div>-->
 <!--      </div>-->
-      <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12">
+      <div class="container mx-auto px-5 py-2 lg:pt-12">
         <div class="-m-1 flex flex-wrap md:-m-2">
           <div class="flex w-full flex-wrap">
             <div class="w-full p-1 md:p-2">
@@ -521,15 +461,36 @@
         </div>
       </div>
 
-      <div class="relative z-10 lg:py-16">
-        <div class="relative h-64 sm:h-80 lg:h-full">
-          <img
-            alt=""
-            src="<%= asset_path('relocation.jpg') %>"
-            class="absolute inset-0 h-full w-full object-cover"
-            />
+      <div class="container mx-auto px-5 py-2 lg:pt-12">
+        <div class="-m-1 flex flex-wrap md:-m-2">
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('relocation.jpg') %>" />
+            </div>
+          </div>
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('pets.jpg') %>" />
+            </div>
+          </div>
         </div>
       </div>
+
+<!--      <div class="relative z-10 lg:py-16">-->
+<!--        <div class="relative h-64 sm:h-80 lg:h-full">-->
+<!--          <img-->
+<!--            alt=""-->
+<!--            src="<%#= asset_path('relocation.jpg') %>"-->
+<!--            class="absolute inset-0 h-full w-full object-cover"-->
+<!--            />-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
 </section>
@@ -541,13 +502,33 @@
   <div id="customs" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
       <!-- Image Column (Moved to the left side) -->
-      <div class="relative z-10 lg:py-16">
-        <div class="relative h-64 sm:h-80 lg:h-full">
-          <img
-            alt=""
-            src="<%= asset_path('workers_card.jpg') %>"
-            class="absolute inset-0 h-full w-full object-cover"
-            />
+<!--      <div class="relative z-10 lg:py-16">-->
+<!--        <div class="relative h-64 sm:h-80 lg:h-full">-->
+<!--          <img-->
+<!--            alt=""-->
+<!--            src="<%#= asset_path('workers_card.jpg') %>"-->
+<!--            class="absolute inset-0 h-full w-full object-cover"-->
+<!--            />-->
+<!--        </div>-->
+<!--      </div>-->
+      <div class="container z-10 mx-auto px-5 py-2 lg:pt-12">
+        <div class="-m-1 flex flex-wrap md:-m-2">
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('workers.jpg') %>" />
+            </div>
+          </div>
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('CARM.jpg') %>" />
+            </div>
+          </div>
         </div>
       </div>
 

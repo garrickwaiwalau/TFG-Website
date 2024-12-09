@@ -1,68 +1,8 @@
 <!-- Banner Section -->
-<div id="banner" class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
-  <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
-    <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
-  </div>
-  <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
-    <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
-  </div>
-  <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-    <p class="text-sm/6 text-gray-900">
-      <strong class="font-semibold">Don't wait...</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Register TODAY for your CARM account. Making sure your business registration is ready by October 24, 2024.
-    </p>
-    <a href="/faq" class="flex-none rounded-full bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300  px-3.5 py-1 text-sm font-semibold text-white shadow-sm">Learn more <span aria-hidden="true">&rarr;</span></a>
-  </div>
-  <div class="flex flex-1 justify-end">
-    <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]" onclick="hideBanner()">
-      <span class="sr-only">Dismiss</span>
-      <svg class="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-        <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
-      </svg>
-    </button>
-  </div>
-</div>
+<%= render 'shared/banner' %>
 
 <!-- Navbar Section -->
-<nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
-  <div class="px-20 py-4 md:flex md:justify-between sm:px-6 md:px-6 md:items-center">
-    <div class="flex items-center justify-between">
-      <a href="/index">
-        <img class="w-auto h-16 sm:h-16 md:h-16 xl:h-32" src="/icon.png" alt="Trustfreight Global">
-      </a>
-
-      <!-- Mobile menu button -->
-      <div class="flex lg:hidden">
-        <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
-          <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-          </svg>
-
-          <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-    <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
-      <div class="flex flex-col md:flex-row md:mx-6">
-        <a href="/index" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">Home</a>
-        <a href="/service" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">Services</a>
-        <a href="/tracking" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">Tracking</a>
-        <a href="/about" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">About</a>
-        <a href="/contact" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">Contact</a>
-        <a href="/faq" class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">FAQ</a>
-      </div>
-
-      <div class="flex justify-between md:block">
-        <a class="relative text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300">
-          <button type="button" class="text-white bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><%= link_to 'Quote', quote_path %></button>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
+<%= render 'shared/navbar' %>
 
 <!-- FAQ Header Section -->
 <section>
@@ -81,6 +21,7 @@
 
 <!-- FAQ section -->
 <div class="space-y-4 bg-gray-100">
+  <!-- What is Ro/Ro? -->
   <details class="group [&_summary::-webkit-details-marker]:hidden">
     <summary
       class="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900"
@@ -120,6 +61,7 @@
     </p>
   </details>
 
+  <!-- What is Customs Brokerage? -->
   <details class="group [&_summary::-webkit-details-marker]:hidden">
     <summary
       class="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900"
@@ -197,6 +139,114 @@
       </ul>
     </section>
   </details>
+
+  <!-- What is CARM? -->
+  <details class="group [&_summary::-webkit-details-marker]:hidden">
+    <summary
+      class="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900"
+    >
+      <h2 class="font-medium">What is CARM?</h2>
+
+      <svg
+        class="size-5 shrink-0 transition duration-300 group-open:-rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </summary>
+
+    <section id ="learncarm" class="mt-4 px-4 py-2">
+      <h2 class="font-bold text-gray-700">What is the CBSA Assessment and Revenue Management (CARM) system?</h2>
+      <br>
+      <p class="text-gray-700">
+        The CBSA Assessment and Revenue Management (CARM) system is an online platform created by the Canada Border Services Agency (CBSA) to make the import process faster and easier for businesses. CARM helps businesses manage their import duties, taxes, and other customs-related processes more efficiently.
+      </p>
+      <br>
+
+      <h3 class="font-bold text-gray-700">How does CARM work?</h3>
+      <br>
+      <p class="text-gray-700">CARM allows businesses to:</p>
+      <br>
+      <ul class="list-disc pl-10 space-y-2 text-gray-700">
+        <li>Create and manage their importer profiles: Each business can set up an account to track their customs transactions, duties, and taxes in one place.</li>
+        <li>Automate duty and tax assessments: CARM automatically calculates the duties and taxes owed for imported goods based on the information provided during the customs process.</li>
+        <li>Make payments online: Importers can pay their duties and taxes directly through the system, making the payment process faster and more convenient.</li>
+        <li>Submit customs declarations and documents electronically: Instead of dealing with paperwork, businesses can submit customs forms and documents online.</li>
+      </ul>
+      <br>
+
+      <h3 class="font-bold text-gray-700">What are the benefits of using CARM?</h3>
+      <br>
+      <ul class="list-disc pl-10 space-y-2 text-gray-700">
+        <li>Faster processing: The system automates many tasks, reducing delays and speeding up customs processes.</li>
+        <li>Better tracking: Businesses can easily track their account balances, payments, and any outstanding duties or taxes.</li>
+        <li>Improved compliance: CARM helps businesses stay compliant with Canadian customs regulations by providing tools for managing and checking their imports.</li>
+        <li>Less paperwork: The system reduces the need for physical documents, streamlining the import process.</li>
+      </ul>
+      <br>
+
+      <h3 class="font-bold text-gray-700">When will CARM be fully implemented?</h3>
+      <br>
+      <p class="text-gray-700">
+        CARM is being rolled out in phases:
+      </p>
+      <br>
+      <ol class="list-decimal pl-10 space-y-2 text-gray-700">
+        <li>Phase 1: Businesses can now create profiles, manage their accounts, and make payments online.</li>
+        <li>Phase 2: The system will include automated risk assessments and the ability to submit customs declarations electronically.</li>
+        <li>Phase 3: The final phase will fully replace older systems, and all customs-related activities will be managed through CARM.</li>
+      </ol>
+      <br>
+
+      <h3 class="font-bold text-gray-700">How can I get started with CARM?</h3>
+      <br>
+      <p class="text-gray-700">
+        To get started, businesses need to create an importer profile on the CARM portal. Once registered, you can manage your account, track transactions, and make payments.<br><br>
+        For more details, please visit the official CBSA CARM portal.
+      </p>
+      <br>
+      <!-- CARM Portal link -->
+      <a class="relative text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300" href="https://ccp-pcc.cbsa-asfc.cloud-nuage.canada.ca/en/homepage" target="_blank">
+        <button type="button" class="text-white bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">CARM Client Portal</button>
+      </a>
+      <br>
+
+      <!-- CARM Official link -->
+      <a class="relative my-4 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300" href="https://www.cbsa-asfc.gc.ca/services/carm-gcra/start-passer-eng.html" target="_blank">
+        <button type="button" class="text-white my-4 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Learn More - CARM Official Site</button>
+    </a>
+
+
+    </section>
+  </details>
+
+  <section class="bg-gray-100 dark:bg-gray-800 lg:py-12 lg:flex lg:justify-center">
+    <div
+      class="overflow-hidden bg-white dark:bg-gray-900 lg:mx-8 lg:flex lg:max-w-6xl lg:w-full lg:shadow-md lg:rounded-xl">
+      <div class="lg:w-1/2">
+        <div class="h-64 bg-cover lg:h-full" style="background-image:url('<%= asset_path('contactform2.jpg') %>')"></div>
+      </div>
+
+      <div class="max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2">
+        <h2 class="text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">
+          We are here to <span class="text-blue-500">help</span>
+        </h2>
+
+        <p class="mt-4 text-gray-500 dark:text-gray-300">
+          Start shipping your parcels without any hassle. Our team of experts are available to help you with any issues you might be facing.
+        </p>
+
+        <div class="inline-flex w-full mt-6 sm:w-auto">
+          <a href="/contact" class="inline-flex items-center justify-center w-full px-6 py-2 text-sm text-white duration-300 bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 <script>
