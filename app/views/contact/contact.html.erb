@@ -4,6 +4,9 @@
 <!-- Navbar Section -->
 <%= render 'shared/navbar' %>
 
+<!-- Flash Message -->
+<%= render 'shared/flashes' %>
+
 <!-- Contact Section -->
 <section class="min-h-screen bg-cover bg-center" style="background-image: url('<%= asset_path('contact2.jpg') %>');">
   <div class="flex flex-col min-h-screen bg-black/30">
@@ -23,7 +26,7 @@
               </svg>
 
               <span class="mx-2 truncate text-xl">
-              6500 Silver Dart Drive<br>Unit 202 Vista Cargo Core B<br>Mississauga, Ontario<br>L5P 1B2
+              6500 Silver Dart Drive<br>Unit 202, Vista Cargo Core A<br>Mississauga, Ontario<br>L5P 1A2
             </span>
             </p>
 
@@ -49,36 +52,40 @@
           <div class="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
             <h1 class="text-3xl font-medium text-gray-700 dark:text-gray-200">Contact Form</h1>
 
-            <form class="mt-6">
+            <%= form_with(model: @contact, url: contact_path, local: true) do |form| %>
               <div class="flex-1">
-                <label for="form-firstname" class="block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl">First Name</label>
-                <input type="text" id="form-firstname" name="form-firstname" placeholder="Your First Name" class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                <%= form.label :first_name, class: "block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl required" %>
+                <%= form.text_field :first_name, placeholder: "Your First Name", class: "block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring", required: true %>
               </div>
 
               <div class="flex-1 mt-6">
-                <label for="form-lastname" class="block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl">Last Name</label>
-                <input type="text" id="form-lastname" name="form-lastname" placeholder="Your Last Name" class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                <%= form.label :last_name, class: "block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl required" %>
+                <%= form.text_field :last_name, placeholder: "Your Last Name", class: "block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring", required: true %>
               </div>
 
               <div class="flex-1 mt-6">
-                <label for="form-email" class="block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl">Email address</label>
-                <input type="email" id="form-email" name="form-email" placeholder="youremail@example.com" class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                <%= form.label :email, class: "block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl required" %>
+                <%= form.email_field :email, placeholder: "youremail@example.com", class: "block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring", required: true %>
               </div>
 
               <div class="flex-1 mt-6">
-                <label for="form-phone" class="block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl">Phone Number</label>
-                <input type="text" id="form-phone" name="form-phone" placeholder="(123) 456-7890" class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                <%= form.label :phone, class: "block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl" %>
+                <%= form.text_field :phone, placeholder: "(123) 456-7890", class: "block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" %>
               </div>
 
               <div class="w-full mt-6">
-                <label for="form-message" class="block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl">Message</label>
-                <textarea id="form-message" name="form-message" placeholder="Message here..." class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"></textarea>
+                <%= form.label :subject, class: "block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl required" %>
+                <%= form.text_field :subject, placeholder: "Subject", class: "block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring", required: true %>
               </div>
 
-              <button class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                get in touch
-              </button>
-            </form>
+              <div class="w-full mt-6">
+                <%= form.label :message, class: "block mb-2 text-sm text-gray-600 dark:text-gray-200 text-xl required" %>
+                <%= form.text_area :message, placeholder: "Message here...", class: "block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring", required: true %>
+              </div>
+
+              <%= form.submit "Get in touch", class: "w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50" %>
+            <% end %>
+
           </div>
         </div>
       </div>
@@ -125,9 +132,15 @@
 <!--</section>-->
 
 <script>
-    <!-- Making banner invisible-->
+    // Hiding Banner
     function hideBanner() {
         var banner = document.getElementById('banner');
         banner.style.display = 'none';
+    }
+
+    // Hiding flash message
+    function hideFlash() {
+        var flash_message = document.getElementById('flash_message');
+        flash_message.style.display = 'none';
     }
 </script>

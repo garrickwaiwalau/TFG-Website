@@ -34,8 +34,20 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = { from: "Garrick.lau@trustfreightglobal.com" }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 587,
+    domain: "trustfreightglobal.com", # Replace with your domain
+    user_name: "apikey",  # Use 'apikey' as the username
+    password: ENV["SENDGRID_API_KEY"],  # Set your API key in an environment variable
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
 
   # Disable caching for Action Mailer templates even if Action Controller
   # caching is enabled.

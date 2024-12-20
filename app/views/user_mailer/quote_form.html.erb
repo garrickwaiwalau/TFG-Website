@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          color: #333;
+          line-height: 1.6;
+      }
+      h1 {
+          /*color: #0044cc;*/
+      }
+      h3 {
+          margin-bottom: 8px;
+      }
+      .section-header {
+          background-color: #f4f4f4;
+          padding: 8px;
+          margin-bottom: 10px;
+      }
+      .section-content {
+          padding-left: 10px;
+          margin-bottom: 20px;
+      }
+      .label {
+          font-weight: bold;
+          color: #555;
+      }
+      .value {
+          color: #333;
+      }
+      .product-row {
+          background-color: #f9f9f9;
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #ddd;
+      }
+  </style>
+</head>
+
+<body>
+
+<h1>New Quote Form Submission</h1>
+
+<div class="section-header">
+  <h2>Package / Cargo Information</h2>
+</div>
+<div class="section-content">
+  <p><span class="label">Mode of Transport:</span> <span class="value"><%= @quote.mode_of_transport %></span></p>
+</div>
+
+<% if @quote.mode_of_transport == "Sea" %>
+  <!-- Sea Container Information -->
+  <div class="section-content">
+    <p><span class="label">Container Size:</span> <span class="value"><%= @quote.container_size %></span></p>
+    <p><span class="label">Quantity by Sea:</span> <span class="value"><%= @quote.quantity_by_sea %></span></p>
+  </div>
+
+<% else %>
+  <!-- Air Shipment Details -->
+  <div class="section-header">
+    <h2>Shipment Details</h2>
+  </div>
+  <div class="section-content">
+    <% @quote.products.each do |product| %>
+      <div class="product-row">
+        <p><span class="label">Commodity:</span> <span class="value"><%= product.product_name %></span></p>
+        <p><span class="label">Quantity:</span> <span class="value"><%= product.product_quantity %></span></p>
+        <p><span class="label">Description:</span> <span class="value"><%= product.type_of_goods %></span></p>
+        <p><span class="label">Gross Length (in.):</span> <span class="value"><%= product.length %></span></p>
+        <p><span class="label">Gross Width (in.):</span> <span class="value"><%= product.width %></span></p>
+        <p><span class="label">Gross Height (in.):</span> <span class="value"><%= product.height %></span></p>
+        <p><span class="label">Gross Weight (lbs.):</span> <span class="value"><%= product.weight %></span></p>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>
+
+<div class="section-header">
+  <h2>Shipping Information</h2>
+</div>
+<div class="section-content">
+  <h3>From</h3>
+  <p><span class="label">Address:</span> <span class="value"><%= @quote.from_address %></span></p>
+  <p><span class="label">City:</span> <span class="value"><%= @quote.from_city %></span></p>
+  <p><span class="label">State/Province:</span> <span class="value"><%= @quote.from_state_province %></span></p>
+  <p><span class="label">Country:</span> <span class="value"><%= @quote.from_country %></span></p>
+  <p><span class="label">Zip/Postal Code:</span> <span class="value"><%= @quote.from_zip_postal %></span></p>
+
+  <h3>To</h3>
+  <p><span class="label">Address:</span> <span class="value"><%= @quote.to_address %></span></p>
+  <p><span class="label">City:</span> <span class="value"><%= @quote.to_city %></span></p>
+  <p><span class="label">State/Province:</span> <span class="value"><%= @quote.to_state_province %></span></p>
+  <p><span class="label">Country:</span> <span class="value"><%= @quote.to_country %></span></p>
+  <p><span class="label">Zip/Postal Code:</span> <span class="value"><%= @quote.to_zip_postal %></span></p>
+  <br>
+  <p><span class="label">Cargo Ready Date:</span> <span class="value"><%= @quote.from_cargo_available %></span></p>
+</div>
+
+<div class="section-header">
+  <h2>Contact Information</h2>
+</div>
+<div class="section-content">
+  <p><span class="label">Title:</span> <span class="value"><%= @quote.sender_title %></span></p>
+  <p><span class="label">First Name:</span> <span class="value"><%= @quote.sender_firstname %></span></p>
+  <p><span class="label">Last Name:</span> <span class="value"><%= @quote.sender_lastname %></span></p>
+  <p><span class="label">Company:</span> <span class="value"><%= @quote.sender_company %></span></p>
+  <p><span class="label">Address:</span> <span class="value"><%= @quote.sender_address %></span></p>
+  <p><span class="label">City:</span> <span class="value"><%= @quote.sender_city %></span></p>
+  <p><span class="label">State/Province:</span> <span class="value"><%= @quote.sender_state_province %></span></p>
+  <p><span class="label">Country:</span> <span class="value"><%= @quote.sender_country %></span></p>
+  <p><span class="label">Zip/Postal Code:</span> <span class="value"><%= @quote.sender_zip_postal %></span></p>
+  <p><span class="label">Phone:</span> <span class="value"><%= @quote.sender_phone %></span></p>
+  <p><span class="label">Email:</span> <span class="value"><%= @quote.sender_email %></span></p>
+</div>
+
+<div class="section-header">
+  <h2>Additional Information</h2>
+</div>
+<div class="section-content">
+  <% unless @quote.amount_requested.nil? %>
+    <p><span class="label">Insurance Amount Requested:</span> <span class="value"><%= @quote.amount_requested %></span> <span class="value"><%= @quote.amount_requested_currency %></span></p>
+  <% else %>
+    <p><span class="label">Insurance Amount Requested:</span></p>
+  <% end %>
+
+  <p><span class="label">Where did you hear about us:</span> <span class="value"><%= @quote.marketing_use %></span></p>
+
+  <% if @quote.customs_clearance %>
+    <p><span class="label">Customs Clearance Required:</span> <span class="value">Yes</span></p>
+  <% else %>
+    <p><span class="label">Customs Clearance Required:</span> <span class="value">No</span></p>
+  <% end %>
+
+  <% if @quote.existing_customer %>
+    <p><span class="label">Existing Customer:</span> <span class="value">Yes</span></p>
+  <% else %>
+    <p><span class="label">Existing Customer:</span> <span class="value">No</span></p>
+  <% end %>
+
+  <p><span class="label">Message:</span></p>
+  <p><span class="value"><%= @quote.message %></span></p>
+</div>
+
+</body>
+</html>

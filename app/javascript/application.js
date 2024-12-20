@@ -52,54 +52,59 @@ document.addEventListener("DOMContentLoaded", function() {
 // });
 
 // Function to add a new row on quote page
-let rowCount = 1; // to keep track of row numbers for labels
+let rowCount = 0; // to keep track of row numbers for labels
 function addRow() {
-    const formRows = document.getElementById('formRows');
+    const productRows = document.getElementById('productRows');
     rowCount++;
 
     // Create new row
     const newRow = document.createElement('div');
-    newRow.classList.add('form-row', 'mt-2', 'grid', 'grid-cols-1', 'gap-x-6', 'gap-y-8', 'sm:grid-cols-8');
+    newRow.classList.add('productRow', 'form-row', 'mt-2', 'flex', 'flex-wrap', 'gap-x-6', 'gap-y-8');
 
     newRow.innerHTML = `
-        <div class="flex flex-col pr-2">
-        <label for="productName${rowCount}" class="mb-2 text-sm/6 font-medium text-gray-900">Product Name</label>
-    <input type="text" id="productName${rowCount}" name="productName[]" class="form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="" required>
-    </div>
-
-    <div class="flex flex-col pr-2">
-        <label for="productQuantity${rowCount}" class="mb-2 text-sm/6 font-medium text-gray-900">Product Quantity</label>
-        <input type="number" id="productQuantity${rowCount}" name="productQuantity[]" class="form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="" required>
-    </div>
-
-    <div class="flex flex-col pr-2">
-        <label for="typeOfGoods${rowCount}" class="mb-2 text-sm/6 font-medium text-gray-900">Type of Goods</label>
-        <input type="text" id="typeOfGoods${rowCount}" name="typeOfGoods[]" class="form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="" required>
-    </div>
-
-    <div class="flex flex-col pr-2">
-        <label for="length${rowCount}" class="mb-2 text-sm/6 font-medium text-gray-900">Length (in.)</label>
-        <input type="number" id="length${rowCount}" name="length[]" class="form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="" required>
-    </div>
-
-    <div class="flex flex-col pr-2">
-        <label for="width${rowCount}" class="mb-2 text-sm/6 font-medium text-gray-900">Width (in.)</label>
-        <input type="number" id="width${rowCount}" name="width[]" class="form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="" required>
-    </div>
-
-    <div class="flex flex-col pr-2">
-        <label for="height${rowCount}" class="mb-2 text-sm/6 font-medium text-gray-900">Height (in.)</label>
-        <input type="number" id="height${rowCount}" name="height[]" class="form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="" required>
-    </div>
-
-    <div class="flex flex-col pr-2">
-        <label for="weight${rowCount}" class="mb-2 text-sm/6 font-medium text-gray-900">Weight (lbs.)</label>
-        <input type="number" id="weight${rowCount}" name="weight[]" class="form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="" required>
-    </div>
-
-    <button type="button" class="text-red-500 hover:text-red-700 ml-2" onclick="removeRow(this)">Remove</button>
+        <div class="flex-1">
+          <label for="quote_products_attributes_${rowCount}_product_name" class="mb-2 text-sm/6 font-medium text-gray-900">Commodity</label>
+          <input type="text" name="quote[products_attributes][${rowCount}][product_name]" id="quote_products_attributes_${rowCount}_product_name" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+        </div>
+        
+        <div class="flex-1">
+          <label for="quote_products_attributes_${rowCount}_product_quantity" class="mb-2 text-sm/6 font-medium text-gray-900">Quantity</label>
+          <input type="number" name="quote[products_attributes][${rowCount}][product_quantity]" id="quote_products_attributes_${rowCount}_product_quantity" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+        </div>
+        
+        <div class="flex-1">
+          <label for="quote_products_attributes_${rowCount}_type_of_goods" class="mb-2 text-sm/6 font-medium text-gray-900">Description</label>
+          <input type="text" name="quote[products_attributes][${rowCount}][type_of_goods]" id="quote_products_attributes_${rowCount}_type_of_goods" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+        </div>
+        
+        <div class="flex-1">
+          <label for="quote_products_attributes_${rowCount}_length" class="mb-2 text-sm/6 font-medium text-gray-900">Gross Length (in.)</label>
+          <input type="number" name="quote[products_attributes][${rowCount}][length]" id="quote_products_attributes_${rowCount}_length" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+        </div>
+        
+        <div class="flex-1">
+          <label for="quote_products_attributes_${rowCount}_width" class="mb-2 text-sm/6 font-medium text-gray-900">Gross Width (in.)</label>
+          <input type="number" name="quote[products_attributes][${rowCount}][width]" id="quote_products_attributes_${rowCount}_width" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+        </div>
+        
+        <div class="flex-1">
+          <label for="quote_products_attributes_${rowCount}_height" class="mb-2 text-sm/6 font-medium text-gray-900">Gross Height (in.)</label>
+          <input type="number" name="quote[products_attributes][${rowCount}][height]" id="quote_products_attributes_${rowCount}_height" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+        </div>
+        
+        <div class="flex-1">
+          <label for="quote_products_attributes_${rowCount}_weight" class="mb-2 text-sm/6 font-medium text-gray-900">Gross Weight (lbs.)</label>
+          <input type="number" name="quote[products_attributes][${rowCount}][weight]" id="quote_products_attributes_${rowCount}_weight" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+        </div>
+        
+        <div class="flex-1">
+          <div class="mt-6">
+            <button type="button" class="text-red-500 hover:text-red-700 ml-2" onclick="removeRow(this)">Remove</button>
+          </div>
+        </div>    
+        
 `;
 
 // Append the new row to the form rows container
-    formRows.appendChild(newRow);
+    productRows.appendChild(newRow);
 }

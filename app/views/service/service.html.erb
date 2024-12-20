@@ -45,7 +45,7 @@
 
     <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 lg:grid-cols-4">
       <a href="#ocean" class="block">
-        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('by_sea.jpg') %>')">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('by_sea_card.jpg') %>')">
           <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
             <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">By Ocean</h2>
             <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
@@ -54,7 +54,7 @@
       </a>
 
       <a href="#air" class="block">
-        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/7/7c/Unloading_JAL_747.jpg')">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('by_air_card.jpg') %>')">
           <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
             <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">By Air
             </h2>
@@ -64,17 +64,18 @@
       </a>
 
       <a href="#ground" class="block">
-        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('truck3_card.jpg') %>')">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('truck_card.jpg') %>')">
           <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
-            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">By Ground Domestic and Cross-border
-            </h2>
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Domestic and </h2>
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Cross-border Trucking</h2>
+
             <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
           </div>
         </div>
       </a>
 
       <a href="#dangerousgoods" class="block">
-        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('dangerous_cargo2_card.jpg') %>')">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('dangerous_cargo_card.jpg') %>')">
           <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
             <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Perishable, Temperature Control and Dangerous Goods</h2>
             <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
@@ -85,9 +86,9 @@
 
     <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 lg:grid-cols-4">
       <a href="#specializedcargo" class="block">
-        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('specialized_cargo3_card.jpg') %>')">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('specialized_cargo_card.jpg') %>')">
           <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
-            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Multi-Modal and specialized cargo</h2>
+            <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Multi-Modal and Specialized Cargo</h2>
             <!-- <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase ">Website</p>-->
           </div>
         </div>
@@ -113,7 +114,7 @@
       </a>
 
       <a href="#customs" class="block">
-        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('workers_card.jpg') %>')">
+        <div class="flex items-end overflow-hidden bg-cover rounded-lg h-96" style="background-image:url('<%= asset_path('customs_card.jpg') %>')">
           <div class="w-full px-8 py-4 overflow-hidden rounded-b-lg backdrop-blur-sm bg-white/60 ">
             <h2 class="mt-2 text-xl font-semibold text-gray-800 capitalize">Customs Clearance and Insurance
             </h2>
@@ -147,13 +148,6 @@
             Whether you're importing full containers from any global destination or exporting oversized cargo, Trustfreight provides reliable logistics solutions designed to ensure timely delivery of your goods.<br><br>
             Contact us today to request a quote and explore our tailored transportation services, backed by our experienced team of logistics professionals.
           </p>
-
-<!--          <a-->
-<!--            href="#"-->
-<!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-<!--          >-->
-<!--            Get in Touch-->
-<!--          </a>-->
         </div>
       </div>
 
@@ -181,7 +175,7 @@
         <div class="relative h-64 sm:h-80 lg:h-full">
           <img
             alt=""
-            src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Unloading_JAL_747.jpg"
+            src="<%= asset_path('by_air.jpg') %>"
             class="absolute inset-0 h-full w-full object-cover"
             />
         </div>
@@ -205,13 +199,6 @@
             From a single shipment to a complete logistics plan, Trustfreight gets your product delivered, worry-free, across the country or anywhere on the globe.
             Request a quote from Trustfreight today for your transportation needs to take advantage of the freight solutions and services available from the team at Trustfreight.
           </p>
-
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-          <!--          >-->
-          <!--            Get in Touch-->
-          <!--          </a>-->
         </div>
       </div>
     </div>
@@ -220,18 +207,18 @@
 
 <hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 sm:my-4 md:my-12" />
 
-<!-- Ground Domestic Section -->
+<!-- Domestic Section -->
 <section>
   <div id="ground" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
       <div class="relative flex items-center bg-gray-100">
         <span
-          class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
+          class="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"
         ></span>
 
         <div class="p-8 sm:p-16 lg:p-24">
           <h2 class="text-2xl font-bold sm:text-3xl">
-            By Ground Domestic and Cross-border Services
+            Domestic and Cross-border Trucking
           </h2>
 
           <p class="mt-4 text-gray-600">
@@ -241,23 +228,27 @@
           <p class="mt-4 text-gray-600">
             Whether you require a single shipment or a complete logistics plan, Trustfreight Global guarantees your cargo is delivered on time, hassle-free, and across the continent.
           </p>
-
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-          <!--          >-->
-          <!--            Get in Touch-->
-          <!--          </a>-->
         </div>
       </div>
 
-      <div class="relative z-10 lg:py-16">
-        <div class="relative h-64 sm:h-80 lg:h-full">
-          <img
-            alt=""
-            src="<%= asset_path('truck4.jpg') %>"
-            class="absolute inset-0 h-full w-full object-cover"
-            />
+      <div class="container z-10 mx-auto px-5 py-2 lg:pt-12">
+        <div class="-m-1 flex flex-wrap md:-m-2">
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('truck.jpg') %>" />
+            </div>
+          </div>
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('cross-border.jpg') %>" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -271,23 +262,14 @@
   <div id="dangerousgoods" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
       <!-- Image Column (Moved to the left side) -->
-<!--      <div class="relative z-10 lg:py-16">-->
-<!--        <div class="relative h-64 sm:h-80 lg:h-full">-->
-<!--          <img-->
-<!--            alt=""-->
-<!--            src="<%#= asset_path('dangerous_cargo2_card') %>"-->
-<!--            class="absolute inset-0 h-full w-full object-cover"-->
-<!--            />-->
-<!--        </div>-->
-<!--      </div>-->
-      <div class="container mx-auto px-5 py-2 lg:pt-12">
+      <div class="container z-10 mx-auto px-5 py-2 lg:pt-12">
         <div class="-m-1 flex flex-wrap md:-m-2">
           <div class="flex w-full flex-wrap">
             <div class="w-full p-1 md:p-2">
               <img
                 alt="gallery"
                 class="block h-full w-full rounded-lg object-cover object-center"
-                src="<%= asset_path('dangerous_cargo3.jpg') %>" />
+                src="<%= asset_path('dangerous_cargo.jpg') %>" />
             </div>
           </div>
           <div class="flex w-full flex-wrap">
@@ -295,7 +277,7 @@
               <img
                 alt="gallery"
                 class="block h-full w-full rounded-lg object-cover object-center"
-                src="<%= asset_path('perishable1.jpg') %>" />
+                src="<%= asset_path('perishable.jpg') %>" />
             </div>
           </div>
         </div>
@@ -304,7 +286,7 @@
       <!-- Content Column (Moved to the right side) -->
       <div class="relative flex items-center bg-gray-100">
         <span
-          class="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"
+          class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
         ></span>
 
         <div class="p-8 sm:p-16 lg:p-24">
@@ -320,13 +302,6 @@
             With our staff trained in IMDG, Transport Canada, IATA, and all relevant regulations, we are fully equipped to manage the shipment of hazardous goods via ocean, air, road, or rail.
             Whether it's temperature-sensitive cargo or dangerous goods, Trustfreight Global guarantees safe, efficient, and compliant handling of your shipments.
           </p>
-
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-          <!--          >-->
-          <!--            Get in Touch-->
-          <!--          </a>-->
         </div>
       </div>
     </div>
@@ -347,7 +322,7 @@
 
         <div class="p-8 sm:p-16 lg:p-24">
           <h2 class="text-2xl font-bold sm:text-3xl">
-            Multi-Modal and Specialized cargo
+            Multi-Modal and Specialized Cargo
           </h2>
 
           <p class="mt-4 text-gray-600">
@@ -358,24 +333,28 @@
             Our expertise in handling specialized cargo allows us to safely manage oversized, heavy, and high-value goods that require tailored solutions and precise handling.
             With an emphasis on reliability, safety, and adaptability, Trustfreight Global delivers customized logistics that meet your unique cargo requirements.
           </p>
-
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-          <!--          >-->
-          <!--            Get in Touch-->
-          <!--          </a>-->
         </div>
       </div>
 
       <!-- Image Column (Moved to the left side) -->
-      <div class="relative z-10 lg:py-16">
-        <div class="relative h-64 sm:h-80 lg:h-full">
-          <img
-            alt=""
-            src="<%= asset_path('specialized_cargo1.jpg') %>"
-            class="absolute inset-0 h-full w-full object-cover"
-            />
+      <div class="container z-10 mx-auto px-5 py-2 lg:pt-12">
+        <div class="-m-1 flex flex-wrap md:-m-2">
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('specialized_cargo.jpg') %>" />
+            </div>
+          </div>
+          <div class="flex w-full flex-wrap">
+            <div class="w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="<%= asset_path('specialized_cargo2.jpg') %>" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -414,13 +393,6 @@
             Our team of experts will work with you to develop a customized solution that meets your unique requirements.
             Whether you need short-term storage or long-term warehousing, we have the facilities and resources to meet your needs.
           </p>
-
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-          <!--          >-->
-          <!--            Get in Touch-->
-          <!--          </a>-->
         </div>
       </div>
     </div>
@@ -435,7 +407,7 @@
     <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
       <div class="relative flex items-center bg-gray-100">
         <span
-          class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
+          class="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"
         ></span>
 
         <div class="p-8 sm:p-16 lg:p-24">
@@ -451,17 +423,10 @@
             Our services include expert assistance with customs clearance, detailed logistics planning, and door-to-door delivery, all tailored to meet your specific needs.
             With a focus on efficiency and reliability, Trustfreight Global takes the stress out of international relocation, allowing you to focus on your new journey.
           </p>
-
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-          <!--          >-->
-          <!--            Get in Touch-->
-          <!--          </a>-->
         </div>
       </div>
 
-      <div class="container mx-auto px-5 py-2 lg:pt-12">
+      <div class="container z-10 mx-auto px-5 py-2 lg:pt-12">
         <div class="-m-1 flex flex-wrap md:-m-2">
           <div class="flex w-full flex-wrap">
             <div class="w-full p-1 md:p-2">
@@ -481,16 +446,6 @@
           </div>
         </div>
       </div>
-
-<!--      <div class="relative z-10 lg:py-16">-->
-<!--        <div class="relative h-64 sm:h-80 lg:h-full">-->
-<!--          <img-->
-<!--            alt=""-->
-<!--            src="<%#= asset_path('relocation.jpg') %>"-->
-<!--            class="absolute inset-0 h-full w-full object-cover"-->
-<!--            />-->
-<!--        </div>-->
-<!--      </div>-->
     </div>
   </div>
 </section>
@@ -502,15 +457,6 @@
   <div id="customs" class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
       <!-- Image Column (Moved to the left side) -->
-<!--      <div class="relative z-10 lg:py-16">-->
-<!--        <div class="relative h-64 sm:h-80 lg:h-full">-->
-<!--          <img-->
-<!--            alt=""-->
-<!--            src="<%#= asset_path('workers_card.jpg') %>"-->
-<!--            class="absolute inset-0 h-full w-full object-cover"-->
-<!--            />-->
-<!--        </div>-->
-<!--      </div>-->
       <div class="container z-10 mx-auto px-5 py-2 lg:pt-12">
         <div class="-m-1 flex flex-wrap md:-m-2">
           <div class="flex w-full flex-wrap">
@@ -518,7 +464,7 @@
               <img
                 alt="gallery"
                 class="block h-full w-full rounded-lg object-cover object-center"
-                src="<%= asset_path('workers.jpg') %>" />
+                src="<%= asset_path('customs.jpg') %>" />
             </div>
           </div>
           <div class="flex w-full flex-wrap">
@@ -535,7 +481,7 @@
       <!-- Content Column (Moved to the right side) -->
       <div class="relative flex items-center bg-gray-100">
         <span
-          class="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"
+          class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
         ></span>
 
         <div class="p-8 sm:p-16 lg:p-24">
@@ -550,16 +496,9 @@
 
           <p class="mt-4 text-gray-600">
             CARM helps process shipments more quickly by submitting electronic information ahead of arrival, while PARS facilitates pre-arrival approval for shipments, reducing delays at the border.
-            Additionally, we provide insurance coverage for your shipments, protecting your cargo against loss, damage, or theft.
+            Additionally, we can provide insurance coverage for your shipments, protecting your cargo against loss, damage, or theft.
             This combination of advanced technology and expert services ensures that your shipments are cleared quickly and efficiently, saving you time and money.
           </p>
-
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"-->
-          <!--          >-->
-          <!--            Get in Touch-->
-          <!--          </a>-->
         </div>
       </div>
     </div>
@@ -567,7 +506,7 @@
 </section>
 
 <script>
-    <!-- Making banner invisible-->
+    // Hiding Banner
     function hideBanner() {
         var banner = document.getElementById('banner');
         banner.style.display = 'none';
