@@ -40,7 +40,7 @@
 
 <body>
 
-<h1>New Quote Form Submission</h1>
+<h1>New Quote Form Submission #<%= @quote.reference_number %></h1>
 
 <div class="section-header">
   <h2>Package / Cargo Information</h2>
@@ -49,15 +49,22 @@
   <p><span class="label">Mode of Transport:</span> <span class="value"><%= @quote.mode_of_transport %></span></p>
 </div>
 
-<% if @quote.mode_of_transport == "Sea" %>
-  <!-- Sea Container Information -->
+<% if @quote.mode_of_transport == "Ocean" %>
+  <!-- Ocean Information -->
   <div class="section-content">
-    <p><span class="label">Container Size:</span> <span class="value"><%= @quote.container_size %></span></p>
-    <p><span class="label">Quantity by Sea:</span> <span class="value"><%= @quote.quantity_by_sea %></span></p>
+    <p><span class="label">Shipment Type:</span> <span class="value"><%= @quote.container_size %></span></p>
+    <% if @quote.container_size == "FCL" %>
+      <p><span class="label">Container Type:</span> <span class="value"><%= @quote.container_type %></span></p>
+    <% else %>
+      <p><span class="label">Packaging Type:</span> <span class="value"><%= @quote.packaging_type %></span></p>
+    <% end %>
+    <p><span class="label">Quantity:</span> <span class="value"><%= @quote.quantity_by_sea %></span></p>
+    <p><span class="label">Commodity:</span></p>
+    <p><span class="value"><%= simple_format(@quote.commodity) %></span></p>
   </div>
 
 <% else %>
-  <!-- Air Shipment Details -->
+  <!-- Air/ Cross-border Shipment Details -->
   <div class="section-header">
     <h2>Shipment Details</h2>
   </div>

@@ -13,7 +13,7 @@ class IndexController < ApplicationController
       UserMailer.contact_form(@contact).deliver_now
 
       # Redirect or render a success page
-      redirect_to index_path, notice: "Your message has been sent successfully!"
+      redirect_to index_path, notice: "Your message has been sent successfully! Your reference number is: #{@contact.reference_number}.".html_safe
     else
       puts @contact.errors.full_messages # Log the validation errors
       redirect_to index_path, alert: "There was an issue with your submission."

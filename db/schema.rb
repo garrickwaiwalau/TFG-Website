@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_20_162622) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_24_163620) do
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -20,6 +20,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_20_162622) do
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "reference_number"
+    t.string "services", null: false
+    t.index ["reference_number"], name: "index_contacts_on_reference_number", unique: true
   end
 
   create_table "products", force: :cascade do |t|
@@ -70,6 +73,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_20_162622) do
     t.datetime "updated_at", null: false
     t.string "amount_requested_currency", default: "CAD"
     t.text "message"
+    t.string "container_type"
+    t.string "packaging_type"
+    t.string "reference_number"
+    t.string "commodity"
+    t.decimal "length_ocean", precision: 10, scale: 2
+    t.decimal "width_ocean", precision: 10, scale: 2
+    t.decimal "height_ocean", precision: 10, scale: 2
+    t.decimal "weight_ocean", precision: 10, scale: 2
+    t.index ["reference_number"], name: "index_quotes_on_reference_number", unique: true
     t.index ["sender_email"], name: "index_quotes_on_sender_email"
   end
 

@@ -14,7 +14,7 @@ class QuoteController < ApplicationController
       UserMailer.quote_form(@quote).deliver_now
 
       # Redirect or render a success page
-      redirect_to quote_path, notice: "Your quote form has been sent successfully!"
+      redirect_to quote_path, notice: "Your quote form has been sent successfully! Your reference number is: #{@quote.reference_number}.".html_safe
     else
       puts @quote.errors.full_messages # Log the validation errors
       redirect_to quote_path, alert: "There was an issue with your submission."
@@ -38,8 +38,11 @@ class QuoteController < ApplicationController
     params.require(:quote).permit(
       # Package / Cargo Information
       :mode_of_transport, # Mode of transportation (Air or Sea)
-      :container_size, # Container size by sea (LCL/FCL)
-      :quantity_by_sea, # Quantity by sea
+      :container_size, # Shipment Type by ocean (LCL/FCL)
+      :container_type, # Container type
+      :packaging_type, # Packaging type
+      :quantity_by_sea, # Quantity by ocean
+      :commodity, # Commodity
       # Shipping Information
       :from_address, # Address from which goods are shipped
       :to_address, # Address to which goods are shipped

@@ -17,13 +17,20 @@
         <div class="sm:col-span-1 sm:col-start-1">
           <%= form.label :mode_of_transport, "Mode of Transportation", class: "block text-sm/6 font-medium text-gray-900" %>
           <div class="mt-2">
-            <%= form.select :mode_of_transport, options_for_select([['Air', 'Air'], ['Sea', 'Sea']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6" %>
+            <%= form.select :mode_of_transport, options_for_select([['Air', 'Air'], ['Ocean', 'Ocean'], ['Cross-border', 'Cross-border']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6" %>
           </div>
         </div>
       </div>
 
-      <!-- Air Content -->
-      <div id="airContent" class="dynamicFormDiv mt-8 w-full">
+      <!-- Air/ Cross-border Content -->
+      <div id="airTruckContent" class="dynamicFormDiv mt-8 w-full">
+        <div id="packagingType" class="sm:col-span-3">
+          <%= form.label :packaging_type, "Packaging Type", class: "block text-sm/6 font-medium text-gray-900" %>
+          <div class="mt-2">
+            <%= form.select :packaging_type, options_for_select([['Pallet(s)', 'Pallet(s)'], ['Piece(s)', 'Piece(s)']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+          </div>
+        </div>
+
         <div id="productRows">
           <%= form.fields_for :products do |product_form| %>
             <div class="productRow form-row mt-2 flex flex-wrap gap-x-6 gap-y-8">
@@ -98,17 +105,66 @@
       <!-- Sea Content -->
       <div id="seaContent" class="dynamicFormDiv mt-8 hidden">
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <div class="sm:col-span-3">
-            <%= form.label :container_size, "Container Size", class: "block text-sm/6 font-medium text-gray-900" %>
+          <div class="sm:col-span-3 sm:col-start-1">
+            <%= form.label :container_size, "Shipment Type", class: "block text-sm/6 font-medium text-gray-900" %>
             <div class="mt-2">
-              <%= form.select :container_size, options_for_select([['LCL', 'LCL'], ['FCL', 'FCL']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+              <%= form.select :container_size, options_for_select([['LCL / Truck / Air', 'LCL / Truck / Air'], ['FCL', 'FCL']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
             </div>
           </div>
 
-          <div class="sm:col-span-3">
+          <div id="packagingType" class="sm:col-span-3">
+            <%= form.label :packaging_type, "Packaging Type", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.select :packaging_type, options_for_select([['Pallet(s)', 'Pallet(s)'], ['Piece(s)', 'Piece(s)']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div id="containerType" class="sm:col-span-3">
+            <%= form.label :container_type, "Container Type", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.select :container_type, options_for_select([['20\' GP', '20\' GP'], ['40\' GP', '40\' GP'], ['40\' HQ', '40\' HQ'], ['Others, please specify in comments', 'Others']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3 sm:col-start-1">
             <%= form.label :quantity_by_sea, "Quantity", class: "block text-sm/6 font-medium text-gray-900" %>
             <div class="mt-2">
               <%= form.number_field :quantity_by_sea, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3 ">
+            <%= form.label :commodity, "Commodity", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.text_area :commodity, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3 ">
+            <%= form.label :length_ocean, "Gross Length (in.)", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.number_field :length_ocean, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3 ">
+            <%= form.label :width_ocean, "Gross Width (in.)", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.number_field :width_ocean, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3 ">
+            <%= form.label :height_ocean, "Gross Height (in.)", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.number_field :height_ocean, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3 ">
+            <%= form.label :weight_ocean, "Gross Weight (lbs.)", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.number_field :weight_ocean, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
             </div>
           </div>
         </div>
@@ -390,25 +446,41 @@
 
     // Get the select element and content sections
     const mode_of_transport = document.getElementById('quote_mode_of_transport');
-    const airContent = document.getElementById('airContent');
+    const airTruckContent = document.getElementById('airTruckContent');
     const seaContent = document.getElementById('seaContent');
+
+    const container_size = document.getElementById('quote_container_size');
+    const packaging_type = document.getElementById('packagingType');
+    const container_type = document.getElementById('containerType');
 
     // Function to toggle the content based on selected mode of transport
     function toggleContent() {
         // Hide both sections initially
-        airContent.classList.add('hidden');
+        airTruckContent.classList.add('hidden');
         seaContent.classList.add('hidden');
 
         // Show content based on selection
-        if (mode_of_transport.value === 'Air') {
-            airContent.classList.remove('hidden');
-        } else if (mode_of_transport.value === 'Sea') {
+        if (mode_of_transport.value === 'Ocean') {
             seaContent.classList.remove('hidden');
+        } else {
+            airTruckContent.classList.remove('hidden');
+        }
+
+        // Hide both fields initially
+        packaging_type.classList.add('hidden');
+        container_type.classList.add('hidden');
+
+        // Show content based on selection
+        if (container_size.value === 'FCL') {
+            container_type.classList.remove('hidden');
+        } else {
+            packaging_type.classList.remove('hidden');
         }
     }
 
     // Initialize by calling the toggleContent function
     mode_of_transport.addEventListener('change', toggleContent);
+    container_size.addEventListener('change', toggleContent);
 
     // Call it initially to ensure the form starts with the correct visibility
     toggleContent();
