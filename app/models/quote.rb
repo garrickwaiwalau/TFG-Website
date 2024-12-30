@@ -5,6 +5,7 @@ class Quote < ApplicationRecord
 
   # # Validations
   # validates :mode_of_transport, presence: true
+  #
   # # Shipping Information
   # validates :from_address, presence: true
   # validates :to_address, presence: true
@@ -28,7 +29,7 @@ class Quote < ApplicationRecord
   # # Others
   # # validates :customs_clearance, presence: true
   # # validates :existing_customer, presence: true
-  # # validates :message, presence: true
+  # # validates :comment, presence: true
 
   validates :reference_number, uniqueness: true
 

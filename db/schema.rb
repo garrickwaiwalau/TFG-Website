@@ -10,25 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_24_163620) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_18_220540) do
   create_table "contacts", force: :cascade do |t|
+    t.string "reference_number"
     t.string "first_name"
     t.string "last_name"
+    t.string "services", null: false
     t.string "email"
     t.string "phone"
     t.string "subject"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "reference_number"
-    t.string "services", null: false
     t.index ["reference_number"], name: "index_contacts_on_reference_number", unique: true
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "product_name"
-    t.integer "product_quantity"
-    t.string "type_of_goods"
+    t.integer "quantity"
+    t.string "packagingType"
     t.decimal "length", precision: 10, scale: 2
     t.decimal "width", precision: 10, scale: 2
     t.decimal "height", precision: 10, scale: 2
@@ -40,9 +39,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_24_163620) do
   end
 
   create_table "quotes", force: :cascade do |t|
+    t.string "reference_number"
     t.string "mode_of_transport"
-    t.string "container_size"
-    t.decimal "quantity_by_sea"
+    t.string "commodity_air_truck"
+    t.string "shipment_type"
+    t.decimal "quantity_ocean"
+    t.string "container_type"
+    t.string "packaging_type"
+    t.string "commodity_ocean"
+    t.decimal "length_ocean", precision: 10, scale: 2
+    t.decimal "width_ocean", precision: 10, scale: 2
+    t.decimal "height_ocean", precision: 10, scale: 2
+    t.decimal "weight_ocean", precision: 10, scale: 2
     t.string "from_address"
     t.string "to_address"
     t.string "from_city"
@@ -53,7 +61,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_24_163620) do
     t.string "to_country"
     t.string "from_zip_postal"
     t.string "to_zip_postal"
-    t.date "from_cargo_available"
+    t.date "cargo_ready_date"
     t.string "sender_title"
     t.string "sender_firstname"
     t.string "sender_lastname"
@@ -66,23 +74,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_24_163620) do
     t.string "sender_phone"
     t.string "sender_email", null: false
     t.decimal "amount_requested", precision: 10, scale: 2
+    t.string "amount_requested_currency", default: "CAD"
     t.string "marketing_use"
     t.boolean "customs_clearance"
     t.boolean "existing_customer"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "amount_requested_currency", default: "CAD"
-    t.text "message"
-    t.string "container_type"
-    t.string "packaging_type"
-    t.string "reference_number"
-    t.string "commodity"
-    t.decimal "length_ocean", precision: 10, scale: 2
-    t.decimal "width_ocean", precision: 10, scale: 2
-    t.decimal "height_ocean", precision: 10, scale: 2
-    t.decimal "weight_ocean", precision: 10, scale: 2
     t.index ["reference_number"], name: "index_quotes_on_reference_number", unique: true
-    t.index ["sender_email"], name: "index_quotes_on_sender_email"
   end
 
   add_foreign_key "products", "quotes"

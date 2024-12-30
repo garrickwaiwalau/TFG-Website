@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <style>
-      body {
-          font-family: Arial, sans-serif;
-          color: #333;
-          line-height: 1.6;
-      }
-      h1 {
-          /*color: #0044cc;*/
-      }
+  <head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            /*color: #0044cc;*/
+        }
 
-      .label {
-          font-weight: bold;
-          color: #555;
-      }
-      .value {
-          color: #333;
-      }
-  </style>
-</head>
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+        .value {
+            color: #333;
+        }
+    </style>
+  </head>
 
-<body>
+  <body>
+    <h1>New Contact Form Submission #<%= @contact.reference_number %></h1>
 
-<h1>New Contact Form Submission #<%= @contact.reference_number %></h1>
+    <p><span class="label">First Name:</span> <span class="value"><%= @contact.first_name %></span></p>
+    <p><span class="label">Last Name:</span> <span class="value"><%= @contact.last_name %></span></p>
+    <p><span class="label">Services:</span> <span class="value"><%= @contact.services %></span></p>
+    <p><span class="label">Email:</span> <span class="value"><%= @contact.email %></span></p>
 
-<p><span class="label">First Name:</span> <span class="value"><%= @contact.first_name %></span></p>
-<p><span class="label">Last Name:</span> <span class="value"><%= @contact.last_name %></span></p>
-<p><span class="label">Email:</span> <span class="value"><%= @contact.email %></span></p>
+    <% unless @contact.phone.empty? %>
+      <p><span class="label">Phone Number:</span> <span class="value"><%= @contact.phone %></span></p>
+    <% end %>
 
-<% unless @contact.phone.empty? %>
-  <p><span class="label">Phone Number:</span> <span class="value"><%= @contact.phone %></span></p>
-<% end %>
-
-<p><span class="label">Subject:</span> <span class="value"><%= @contact.subject %></span></p>
-<p><span class="label">Message:</span></p>
-<p><span class="value"><%= @contact.message %></span></p>
-
-</body>
+    <p><span class="label">Subject:</span> <span class="value"><%= @contact.subject %></span></p>
+    <p><span class="label">Message:</span></p>
+    <p><span class="value"><%= @contact.message %></span></p>
+  </body>
 </html>

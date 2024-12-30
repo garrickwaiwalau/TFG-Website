@@ -19,17 +19,6 @@ class QuoteController < ApplicationController
       puts @quote.errors.full_messages # Log the validation errors
       redirect_to quote_path, alert: "There was an issue with your submission."
     end
-
-    # render turbo_stream: [
-    #   turbo_stream.replace(
-    #     "turbo_id",
-    #     partial: "../..",
-    #     locals: {
-    #       # ...
-    #     },
-    #     ),
-    #   turbo_stream.replace("flash-messages", partial: "application/flash"),
-    # ]
   end
 
   private
@@ -37,12 +26,19 @@ class QuoteController < ApplicationController
   def quote_params
     params.require(:quote).permit(
       # Package / Cargo Information
-      :mode_of_transport, # Mode of transportation (Air or Sea)
-      :container_size, # Shipment Type by ocean (LCL/FCL)
+      :mode_of_transport, # Mode of transportation (Air/ Ocean/ Trucking)
+      # Air Shipment Details
+      :commodity_air_truck, # Commodity
+      # Ocean Shipment Details
+      :shipment_type, # Shipment Type (LCL/FCL)
+      :commodity_ocean, # Commodity
+      :quantity_ocean, # Quantity by ocean
       :container_type, # Container type
       :packaging_type, # Packaging type
-      :quantity_by_sea, # Quantity by ocean
-      :commodity, # Commodity
+      :length_ocean, # Length by Ocean
+      :width_ocean, # Width by Ocean
+      :height_ocean, # Height by Ocean
+      :weight_ocean, # Weight by Ocean
       # Shipping Information
       :from_address, # Address from which goods are shipped
       :to_address, # Address to which goods are shipped
@@ -54,7 +50,7 @@ class QuoteController < ApplicationController
       :to_country, # Country to which goods are shipped
       :from_zip_postal, # Zip/postal code from which goods are shipped
       :to_zip_postal, # Zip/postal code to which goods are shipped
-      :from_cargo_available, # Date which cargo available by
+      :cargo_ready_date, # Cargo Ready Date
       # Contact Information
       :sender_title, # Sender title
       :sender_firstname, # Sender first name
@@ -75,7 +71,7 @@ class QuoteController < ApplicationController
       :existing_customer, # Are you an existing customer?
       :message, # Comment/ message area
       # Package / Cargo Information
-      products_attributes: [:product_name, :product_quantity, :type_of_goods, :length, :width, :height, :weight] # product information by air
+      products_attributes: [:quantity, :packagingType, :length, :width, :height, :weight] # product information by air
     )
   end
 

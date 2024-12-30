@@ -17,44 +17,38 @@
         <div class="sm:col-span-1 sm:col-start-1">
           <%= form.label :mode_of_transport, "Mode of Transportation", class: "block text-sm/6 font-medium text-gray-900" %>
           <div class="mt-2">
-            <%= form.select :mode_of_transport, options_for_select([['Air', 'Air'], ['Ocean', 'Ocean'], ['Cross-border', 'Cross-border']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6" %>
+            <%= form.select :mode_of_transport, options_for_select([['Air', 'Air'], ['Ocean', 'Ocean'], ['Trucking', 'Trucking']], 'Air'), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm/6" %>
           </div>
         </div>
       </div>
 
-      <!-- Air/ Cross-border Content -->
+      <!-- Air/ Trucking Content -->
       <div id="airTruckContent" class="dynamicFormDiv mt-8 w-full">
-        <div id="packagingType" class="sm:col-span-3">
-          <%= form.label :packaging_type, "Packaging Type", class: "block text-sm/6 font-medium text-gray-900" %>
-          <div class="mt-2">
-            <%= form.select :packaging_type, options_for_select([['Pallet(s)', 'Pallet(s)'], ['Piece(s)', 'Piece(s)']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+        <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-3">
+            <%= form.label :commodity_air_truck, "Commodity", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.text_field :commodity_air_truck, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
           </div>
         </div>
 
         <div id="productRows">
           <%= form.fields_for :products do |product_form| %>
             <div class="productRow form-row mt-2 flex flex-wrap gap-x-6 gap-y-8">
-              <!-- Commodity -->
-              <div class="flex-1">
-                <%= product_form.label :product_name, "Commodity", class: "mb-2 text-sm/6 font-medium text-gray-900" %>
-                <div class="mt-2">
-                  <%= product_form.text_field :product_name, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md", placeholder: "" %>
-                </div>
-              </div>
-
               <!-- Quantity -->
               <div class="flex-1">
-                <%= product_form.label :product_quantity, "Quantity", class: "mb-2 text-sm/6 font-medium text-gray-900" %>
+                <%= product_form.label :quantity, "Quantity", class: "mb-2 text-sm/6 font-medium text-gray-900" %>
                 <div class="mt-2">
-                  <%= product_form.number_field :product_quantity, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md", placeholder: "" %>
+                  <%= product_form.number_field :quantity, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md"%>
                 </div>
               </div>
 
-              <!-- Description -->
+              <!-- Packaging Type -->
               <div class="flex-1">
-                <%= product_form.label :type_of_goods, "Description", class: "mb-2 text-sm/6 font-medium text-gray-900" %>
+                <%= product_form.label :packagingType, "Packaging Type", class: "mb-2 text-sm/6 font-medium text-gray-900" %>
                 <div class="mt-2">
-                  <%= product_form.text_field :type_of_goods, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md", placeholder: "" %>
+                  <%= product_form.select :packagingType, options_for_select([['Pallet(s)', 'Pallet(s)'], ['Piece(s)', 'Piece(s)']], 'Pallet(s)'), {}, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md"%>
                 </div>
               </div>
 
@@ -62,7 +56,7 @@
               <div class="flex-1">
                 <%= product_form.label :length, "Gross Length (in.)", class: "mb-2 text-sm/6 font-medium text-gray-900" %>
                 <div class="mt-2">
-                  <%= product_form.number_field :length, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md", placeholder: "" %>
+                  <%= product_form.number_field :length, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md"%>
                 </div>
               </div>
 
@@ -70,7 +64,7 @@
               <div class="flex-1">
                 <%= product_form.label :width, "Gross Width (in.)", class: "mb-2 text-sm/6 font-medium text-gray-900" %>
                 <div class="mt-2">
-                  <%= product_form.number_field :width, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md", placeholder: "" %>
+                  <%= product_form.number_field :width, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md"%>
                 </div>
               </div>
 
@@ -78,7 +72,7 @@
               <div class="flex-1">
                 <%= product_form.label :height, "Gross Height (in.)", class: "mb-2 text-sm/6 font-medium text-gray-900" %>
                 <div class="mt-2">
-                  <%= product_form.number_field :height, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md", placeholder: "" %>
+                  <%= product_form.number_field :height, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md"%>
                 </div>
               </div>
 
@@ -86,7 +80,7 @@
               <div class="flex-1">
                 <%= product_form.label :weight, "Gross Weight (lbs.)", class: "mb-2 text-sm/6 font-medium text-gray-900" %>
                 <div class="mt-2">
-                  <%= product_form.number_field :weight, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md", placeholder: "" %>
+                  <%= product_form.number_field :weight, class: "w-40 form-input px-4 py-2 border border-gray-300 rounded-md"%>
                 </div>
               </div>
 
@@ -102,41 +96,41 @@
         </div>
       </div>
 
-      <!-- Sea Content -->
-      <div id="seaContent" class="dynamicFormDiv mt-8 hidden">
+      <!-- Ocean Content -->
+      <div id="oceanContent" class="dynamicFormDiv mt-8 hidden">
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3 sm:col-start-1">
-            <%= form.label :container_size, "Shipment Type", class: "block text-sm/6 font-medium text-gray-900" %>
+            <%= form.label :shipment_type, "Shipment Type", class: "block text-sm/6 font-medium text-gray-900" %>
             <div class="mt-2">
-              <%= form.select :container_size, options_for_select([['LCL / Truck / Air', 'LCL / Truck / Air'], ['FCL', 'FCL']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
-            </div>
-          </div>
-
-          <div id="packagingType" class="sm:col-span-3">
-            <%= form.label :packaging_type, "Packaging Type", class: "block text-sm/6 font-medium text-gray-900" %>
-            <div class="mt-2">
-              <%= form.select :packaging_type, options_for_select([['Pallet(s)', 'Pallet(s)'], ['Piece(s)', 'Piece(s)']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
-            </div>
-          </div>
-
-          <div id="containerType" class="sm:col-span-3">
-            <%= form.label :container_type, "Container Type", class: "block text-sm/6 font-medium text-gray-900" %>
-            <div class="mt-2">
-              <%= form.select :container_type, options_for_select([['20\' GP', '20\' GP'], ['40\' GP', '40\' GP'], ['40\' HQ', '40\' HQ'], ['Others, please specify in comments', 'Others']]), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
-            </div>
-          </div>
-
-          <div class="sm:col-span-3 sm:col-start-1">
-            <%= form.label :quantity_by_sea, "Quantity", class: "block text-sm/6 font-medium text-gray-900" %>
-            <div class="mt-2">
-              <%= form.number_field :quantity_by_sea, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+              <%= form.select :shipment_type, options_for_select([['LCL', 'LCL'], ['FCL', 'FCL']], 'LCL'), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
             </div>
           </div>
 
           <div class="sm:col-span-3 ">
-            <%= form.label :commodity, "Commodity", class: "block text-sm/6 font-medium text-gray-900" %>
+            <%= form.label :commodity_ocean, "Commodity", class: "block text-sm/6 font-medium text-gray-900" %>
             <div class="mt-2">
-              <%= form.text_area :commodity, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+              <%= form.text_area :commodity_ocean, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div id="packagingType" class="sm:col-span-3 sm:col-start-1">
+            <%= form.label :packaging_type, "Packaging Type", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.select :packaging_type, options_for_select([['Pallet(s)', 'Pallet(s)'], ['Piece(s)', 'Piece(s)']], 'Pallet(s)'), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div id="containerType" class="sm:col-span-3 sm:col-start-1">
+            <%= form.label :container_type, "Container Type", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.select :container_type, options_for_select([['20\' GP', '20\' GP'], ['40\' GP', '40\' GP'], ['40\' HQ', '40\' HQ'], ['Others, please specify in comments', 'Others']], '20\' GP'), {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <%= form.label :quantity_ocean, "Quantity", class: "block text-sm/6 font-medium text-gray-900" %>
+            <div class="mt-2">
+              <%= form.number_field :quantity_ocean, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
             </div>
           </div>
 
@@ -186,79 +180,79 @@
         </div>
 
         <div class="sm:col-span-3">
-          <label for="from-address" class="block text-sm/6 font-medium text-gray-900 required">Address</label>
+          <%= form.label :from_address, "Address", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :from_address, id: "from-address", autocomplete: "address", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :from_address, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="to-address" class="block text-sm/6 font-medium text-gray-900 required">Address</label>
+          <%= form.label :to_address, "Address", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :to_address, id: "to-address", autocomplete: "address", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :to_address, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="from-city" class="block text-sm/6 font-medium text-gray-900 required">City</label>
+          <%= form.label :from_city, "City", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :from_city, id: "from-city", autocomplete: "city", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :from_city, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="to-city" class="block text-sm/6 font-medium text-gray-900 required">City</label>
+          <%= form.label :to_city, "City", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :to_city, id: "to-city", autocomplete: "city", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :to_city, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="from-state-province" class="block text-sm/6 font-medium text-gray-900 required">State/Province</label>
+          <%= form.label :from_state_province, "State/ Province", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :from_state_province, id: "from-state-province", autocomplete: "state-province", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :from_state_province, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="to-state-province" class="block text-sm/6 font-medium text-gray-900 required">State/Province</label>
+          <%= form.label :to_state_province, "State/ Province", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :to_state_province, id: "to-state-province", autocomplete: "state-province", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :to_state_province, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="from-country" class="block text-sm/6 font-medium text-gray-900 required">Country</label>
+          <%= form.label :from_country, "Country", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :from_country, id: "from-country", autocomplete: "country", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :from_country, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="to-country" class="block text-sm/6 font-medium text-gray-900 required">Country</label>
+          <%= form.label :to_country, "Country", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :to_country, id: "to-country", autocomplete: "country", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :to_country, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="from-zip-postal" class="block text-sm/6 font-medium text-gray-900 required">Zip/Postal Code</label>
+          <%= form.label :from_zip_postal, "Zip/ Postal Code", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :from_zip_postal, id: "from-zip-postal", autocomplete: "zip-postal", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :from_zip_postal, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="to-zip-postal" class="block text-sm/6 font-medium text-gray-900 required">Zip/Postal Code</label>
+          <%= form.label :to_zip_postal, "Zip/ Postal Code", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
-            <%= form.text_field :to_zip_postal, id: "to-zip-postal", autocomplete: "zip-postal", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
+            <%= form.text_field :to_zip_postal, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6", required: true %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="from-cargo-available" class="block text-sm/6 font-medium text-gray-900">Cargo Ready Date</label>
+          <%= form.label :cargo_ready_date, "Cargo Ready Date", class: "block text-sm/6 font-medium text-gray-900" %>
           <div class="mt-2">
-            <%= form.date_field :from_cargo_available, id: "from-cargo-available", autocomplete: "date", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
+            <%= form.date_field :cargo_ready_date, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
           </div>
         </div>
       </div>
@@ -311,7 +305,7 @@
         </div>
 
         <div class="sm:col-span-3">
-          <%= form.label :sender_state_province, "State/Province", class: "block text-sm/6 font-medium text-gray-900 required" %>
+          <%= form.label :sender_state_province, "State/ Province", class: "block text-sm/6 font-medium text-gray-900 required" %>
           <div class="mt-2">
             <%= form.text_field :sender_state_province, autocomplete: "state-province", required: true, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
           </div>
@@ -325,7 +319,7 @@
         </div>
 
         <div class="sm:col-span-3">
-          <%= form.label :sender_zip_postal, "Zip/Postal Code", class: "block text-sm/6 font-medium text-gray-900" %>
+          <%= form.label :sender_zip_postal, "Zip/ Postal Code", class: "block text-sm/6 font-medium text-gray-900" %>
           <div class="mt-2">
             <%= form.text_field :sender_zip_postal, autocomplete: "zip-postal", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" %>
           </div>
@@ -409,9 +403,9 @@
 
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-3 sm:col-start-1">
-          <%= form.label :message, "Comment", class: "block text-sm/6 font-medium text-gray-900" %>
+          <%= form.label :comment, "Comment", class: "block text-sm/6 font-medium text-gray-900" %>
           <div class="mt-2">
-            <%= form.text_area :message, placeholder: "Leave your comment here...", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"%>
+            <%= form.text_area :comment, placeholder: "Leave your comment here...", class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"%>
           </div>
         </div>
 
@@ -447,9 +441,9 @@
     // Get the select element and content sections
     const mode_of_transport = document.getElementById('quote_mode_of_transport');
     const airTruckContent = document.getElementById('airTruckContent');
-    const seaContent = document.getElementById('seaContent');
+    const oceanContent = document.getElementById('oceanContent');
 
-    const container_size = document.getElementById('quote_container_size');
+    const shipment_type = document.getElementById('quote_shipment_type');
     const packaging_type = document.getElementById('packagingType');
     const container_type = document.getElementById('containerType');
 
@@ -457,11 +451,11 @@
     function toggleContent() {
         // Hide both sections initially
         airTruckContent.classList.add('hidden');
-        seaContent.classList.add('hidden');
+        oceanContent.classList.add('hidden');
 
         // Show content based on selection
         if (mode_of_transport.value === 'Ocean') {
-            seaContent.classList.remove('hidden');
+            oceanContent.classList.remove('hidden');
         } else {
             airTruckContent.classList.remove('hidden');
         }
@@ -471,7 +465,7 @@
         container_type.classList.add('hidden');
 
         // Show content based on selection
-        if (container_size.value === 'FCL') {
+        if (shipment_type.value === 'FCL') {
             container_type.classList.remove('hidden');
         } else {
             packaging_type.classList.remove('hidden');
@@ -480,7 +474,7 @@
 
     // Initialize by calling the toggleContent function
     mode_of_transport.addEventListener('change', toggleContent);
-    container_size.addEventListener('change', toggleContent);
+    shipment_type.addEventListener('change', toggleContent);
 
     // Call it initially to ensure the form starts with the correct visibility
     toggleContent();

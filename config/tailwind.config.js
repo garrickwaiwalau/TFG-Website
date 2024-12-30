@@ -4,6 +4,7 @@ module.exports = {
   content: [
     './app/views/shared/_banner.html.erb',
     './app/views/shared/_navbar.html.erb',
+    './app/views/shared/_footer.html.erb',
     './app/views/shared/_flashes.html.erb',
     './app/views/about/about.html.erb',
     './app/views/contact/contact.html.erb',

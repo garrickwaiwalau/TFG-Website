@@ -63,38 +63,36 @@ function addRow() {
 
     newRow.innerHTML = `
         <div class="flex-1">
-          <label for="quote_products_attributes_${rowCount}_product_name" class="mb-2 text-sm/6 font-medium text-gray-900">Commodity</label>
-          <input type="text" name="quote[products_attributes][${rowCount}][product_name]" id="quote_products_attributes_${rowCount}_product_name" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+          <label for="quote_products_attributes_${rowCount}_quantity" class="mb-2 text-sm/6 font-medium text-gray-900">Quantity</label>
+          <input type="number" name="quote[products_attributes][${rowCount}][quantity]" id="quote_products_attributes_${rowCount}_quantity" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md">
         </div>
         
         <div class="flex-1">
-          <label for="quote_products_attributes_${rowCount}_product_quantity" class="mb-2 text-sm/6 font-medium text-gray-900">Quantity</label>
-          <input type="number" name="quote[products_attributes][${rowCount}][product_quantity]" id="quote_products_attributes_${rowCount}_product_quantity" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
-        </div>
-        
-        <div class="flex-1">
-          <label for="quote_products_attributes_${rowCount}_type_of_goods" class="mb-2 text-sm/6 font-medium text-gray-900">Description</label>
-          <input type="text" name="quote[products_attributes][${rowCount}][type_of_goods]" id="quote_products_attributes_${rowCount}_type_of_goods" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+          <label for="quote_products_attributes_${rowCount}_packagingType" class="mb-2 text-sm/6 font-medium text-gray-900">Packaging Type</label>
+          <select name="quote[products_attributes][${rowCount}][packagingType]" id="quote_products_attributes_${rowCount}_packagingType" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md">
+            <option value="Pallet(s)" selected>Pallet(s)</option>
+            <option value="Piece(s)">Piece(s)</option>
+          </select>
         </div>
         
         <div class="flex-1">
           <label for="quote_products_attributes_${rowCount}_length" class="mb-2 text-sm/6 font-medium text-gray-900">Gross Length (in.)</label>
-          <input type="number" name="quote[products_attributes][${rowCount}][length]" id="quote_products_attributes_${rowCount}_length" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+          <input type="number" name="quote[products_attributes][${rowCount}][length]" id="quote_products_attributes_${rowCount}_length" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md">
         </div>
         
         <div class="flex-1">
           <label for="quote_products_attributes_${rowCount}_width" class="mb-2 text-sm/6 font-medium text-gray-900">Gross Width (in.)</label>
-          <input type="number" name="quote[products_attributes][${rowCount}][width]" id="quote_products_attributes_${rowCount}_width" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+          <input type="number" name="quote[products_attributes][${rowCount}][width]" id="quote_products_attributes_${rowCount}_width" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md">
         </div>
         
         <div class="flex-1">
           <label for="quote_products_attributes_${rowCount}_height" class="mb-2 text-sm/6 font-medium text-gray-900">Gross Height (in.)</label>
-          <input type="number" name="quote[products_attributes][${rowCount}][height]" id="quote_products_attributes_${rowCount}_height" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+          <input type="number" name="quote[products_attributes][${rowCount}][height]" id="quote_products_attributes_${rowCount}_height" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md">
         </div>
         
         <div class="flex-1">
           <label for="quote_products_attributes_${rowCount}_weight" class="mb-2 text-sm/6 font-medium text-gray-900">Gross Weight (lbs.)</label>
-          <input type="number" name="quote[products_attributes][${rowCount}][weight]" id="quote_products_attributes_${rowCount}_weight" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md" placeholder="">
+          <input type="number" name="quote[products_attributes][${rowCount}][weight]" id="quote_products_attributes_${rowCount}_weight" class="w-40 form-input px-4 py-2 border border-gray-300 rounded-md">
         </div>
         
         <div class="flex-1">
