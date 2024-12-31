@@ -1,7 +1,9 @@
+/* Import custom Tailwind CSS */
+@import "index.tailwind.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 /*
 
 @layer components {
