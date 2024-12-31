@@ -63,3 +63,6 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 3.0"
+
+# postgresql gem
+gem 'pg'
