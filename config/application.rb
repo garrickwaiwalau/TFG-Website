@@ -34,5 +34,10 @@ module Myapp
     config.time_zone = "Eastern Time (US & Canada)"
     config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # create a logger with a file as a logging target
+    config.logger = Logger.new("log/important.log")
+    # set the minimum log level
+    config.log_level = :info
   end
 end

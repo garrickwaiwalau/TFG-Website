@@ -2,20 +2,28 @@ class QuoteController < ApplicationController
   def quote
     @quote = Quote.new
     @quote.products.build
+    # logging
+    Rails.logger.info "Quote page accessed"
   end
 
-  def submission
-  end
-
-  def create
+  def submit
     @quote = Quote.new(quote_params)
+
+    # logging
+    Rails.logger.info "Quote data : #{@quote}"
     if @quote.save
       # Send the email
       UserMailer.quote_form(@quote).deliver_now
 
+      # logging
+      Rails.logger.info "Quote data # #{@quote.id} saved"
+
       # Redirect or render a success page
       redirect_to quote_path, notice: "Your quote form has been sent successfully! Your reference number is: #{@quote.reference_number}.".html_safe
     else
+      # logging
+      Rails.logger.warn "Quote data unable to save"
+
       puts @quote.errors.full_messages # Log the validation errors
       redirect_to quote_path, alert: "There was an issue with your submission."
     end
