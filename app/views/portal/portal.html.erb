@@ -29,7 +29,7 @@
 </section>
 
 <!-- Sign out button -->
-<%#= button_to "Sign Out", destroy_user_session_path, :method => 'delete', data:{turbo: "false"}, class: "inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white" %>
+<%= button_to "Sign Out", destroy_user_session_path, :method => 'delete', data:{turbo: "false"}, class: "inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white", style: "display: none" %>
 
 <script>
     // Hiding Banner
