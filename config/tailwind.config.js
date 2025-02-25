@@ -13,7 +13,8 @@ module.exports = {
     './app/views/privacy/privacy.html.erb',
     './app/views/quote/quote.html.erb',
     './app/views/service/service.html.erb',
-    './app/views/tracking/tracking.html.erb'
+    './app/views/tracking/tracking.html.erb',
+    './app/views/portal/portal.html.erb'
   ],
   theme: {
     extend: {

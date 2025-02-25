@@ -36,7 +36,15 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Reading excel files
+gem "roo"
+gem "csv"
+
 gem "spring"
+
+# scheduling jobs
+gem "delayed_job_active_record"
+gem "rufus-scheduler" # Required for running as a background process
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -77,3 +85,5 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 3.0"
+
+gem "devise", "~> 4.9"

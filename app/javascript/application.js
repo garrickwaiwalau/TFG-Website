@@ -4,6 +4,8 @@ import "controllers"
 // Import Alpine.js as an ES module
 import "alpinejs"
 
+import "@hotwired/turbo-rails"
+
 // Initialize Alpine.js if needed
 document.addEventListener('alpine:init', () => {
     Alpine.data('navbar', () => ({

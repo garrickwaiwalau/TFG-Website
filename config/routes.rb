@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, path: 'auth' #, skip: [:registrations, :passwords]
+
   root "index#index"
 
   get "index", to: "index#index", as: "index"
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   get "service", to: "service#service", as: "service"
 
   get "tracking", to: "tracking#tracking", as: "tracking"
+  get "tracking", to: "tracking#search", as: "tracking_search"
 
   get "about", to: "about#about", as: "about"
 
@@ -19,4 +22,8 @@ Rails.application.routes.draw do
   post "quote", to: "quote#submit", as: "quote_form_submit"
 
   get "privacy", to: "privacy#privacy", as: "privacy"
+
+  get "portal", to: "portal#portal", as: "portal"
+  post "portal", to: "portal#upload", as: "portal_upload"
+  post "portal", to: "portal#login", as: "portal_login"
 end

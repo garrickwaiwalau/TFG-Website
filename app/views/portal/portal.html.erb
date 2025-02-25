@@ -1,0 +1,46 @@
+<!-- Banner Section -->
+<%= render 'shared/banner' %>
+
+<!-- Navbar Section -->
+<%= render 'shared/navbar' %>
+
+<!-- Flash Message -->
+<section class="bg-gray-100">
+  <%= render 'shared/flashes' %>
+</section>
+
+<section class="bg-gray-100">
+  <% if user_signed_in? %>
+    <div class="max-w-3xl px-6 py-16 mx-auto text-center items-center">
+      <h1 class="text-3xl font-semibold text-gray-800">Upload Shipment File</h1>
+      <p class="max-w-md mx-auto py-6 text-gray-500 ">Please select your file below</p>
+
+      <%= form_with url: portal_upload_path, method: :post, multipart: true do |form| %>
+        <%= form.file_field :file %>
+        <%= form.submit "Upload File", class: "inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white" %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="max-w-3xl px-6 py-16 mx-auto text-center items-center">
+      <h1 class="text-3xl font-semibold text-gray-800 mb-10">Sign In to access Portal</h1>
+      <%= link_to 'Sign In', new_user_session_path, class: "inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white" %>
+    </div>
+  <% end %>
+</section>
+
+<!-- Sign out button -->
+<%#= button_to "Sign Out", destroy_user_session_path, :method => 'delete', data:{turbo: "false"}, class: "inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white" %>
+
+<script>
+    // Hiding Banner
+    function hideBanner() {
+        var banner = document.getElementById('banner');
+        banner.style.display = 'none';
+    }
+
+    // Hiding flash message
+    function hideFlash() {
+        var flash_message = document.getElementById('flash_message');
+        flash_message.style.display = 'none';
+    }
+</script>

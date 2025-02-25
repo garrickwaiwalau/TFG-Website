@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "Garrick.lau@trustfreightglobal.com"
+  default from: "no-reply@trustfreightglobal.com"
   layout "mailer"
 end
