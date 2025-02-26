@@ -31,7 +31,7 @@
       <% if @air_shipments.present? %>
         <% @air_shipments.each do |air_shipment| %>
           <h1 class="text-3xl font-medium text-gray-700 py-6">Air Shipment Details</h1>
-          <dl class="grid grid-cols-4 sm:grid-cols-2 -my-3 divide-y divide-gray-100 text-sm">
+          <dl class="grid grid-cols-1 md:grid-cols-2 -my-3 text-sm">
             <div class="grid grid-cols-2 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
               <dt class="text-l font-medium text-gray-900">TRACKING CODE</dt>
               <dd class="text-l text-gray-700 sm:col-span-2"><%= air_shipment.tracking_id %></dd>
@@ -39,7 +39,7 @@
 
             <div class="grid grid-cols-2 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
               <dt class="text-l font-medium text-gray-900">CURRENT STATUS</dt>
-              <dd class="text-l text-gray-700 sm:col-span-2"><%= air_shipment.status %></dd>
+              <dd class="text-l text-gray-700 sm:col-span-2 font-bold"><%= air_shipment.status %></dd>
             </div>
 
             <div class="grid grid-cols-2 gap-1 py-3 sm:grid-cols-3 sm:gap-4 bg-gray-100 bg-opacity-80 hover:bg-opacity-90">
@@ -98,7 +98,7 @@
       <% if @ocean_shipments.present? %>
         <% @ocean_shipments.each do |ocean_shipment| %>
           <h1 class="text-3xl font-medium text-gray-700 py-6">Ocean Shipment Details</h1>
-          <dl class="grid grid-cols-4 sm:grid-cols-2 -my-3 divide-y divide-gray-100 text-sm">
+          <dl class="grid grid-cols-1 md:grid-cols-2 -my-3 text-sm">
             <div class="grid grid-cols-2 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
               <dt class="text-l font-medium text-gray-900">TRACKING CODE</dt>
               <dd class="text-l text-gray-700 sm:col-span-2"><%= ocean_shipment.tracking_id %></dd>
@@ -106,7 +106,7 @@
 
             <div class="grid grid-cols-2 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
               <dt class="text-l font-medium text-gray-900">CURRENT STATUS</dt>
-              <dd class="text-l text-gray-700 sm:col-span-2"><%= ocean_shipment.status %></dd>
+              <dd class="text-l text-gray-700 sm:col-span-2 font-bold"><%= ocean_shipment.status %></dd>
             </div>
 
             <div class="grid grid-cols-2 gap-1 py-3 sm:grid-cols-3 sm:gap-4 bg-gray-100 bg-opacity-80 hover:bg-opacity-90">
@@ -185,6 +185,11 @@
             </div>
 
             <div class="grid grid-cols-2 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+              <dt class="text-l font-medium text-gray-900">ETA at Final Destination</dt>
+              <dd class="text-l text-gray-700 sm:col-span-2"><%= ocean_shipment.dest_eta %></dd>
+            </div>
+
+            <div class="grid grid-cols-2 gap-1 py-3 sm:grid-cols-3 sm:gap-4 bg-gray-100 bg-opacity-80 hover:bg-opacity-90">
               <dt class="text-l font-medium text-gray-900">Trust Freight Contact</dt>
               <dd class="text-l text-gray-700 sm:col-span-2"><%= ocean_shipment.pic %></dd>
             </div>
