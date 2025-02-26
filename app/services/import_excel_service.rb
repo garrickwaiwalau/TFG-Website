@@ -14,47 +14,6 @@ class ImportExcelService
     # Iterate over each row, starting from row 2 (to skip headers)
     sheet.each_row_streaming(offset: 1, pad_cells: true) do |row|
       # Extract data from the row
-      _1_value = row[0]&.value # Mode
-      _2_value = row[1]&.value # Type
-      _3_value = row[2]&.value # Reference File Number
-      _4_value = row[3]&.value # AWB / HBL Number
-      _5_value = row[4]&.value # MBL Number
-      _6_value = row[5]&.value # Container Number
-      _7_value = row[6]&.value # Vessel / Flight No
-      _8_value = row[7]&.value # Voyage
-      _9_value = row[8]&.value # Loading Port
-      _10_value = row[9]&.value # ETD Port (Departure)
-      _11_value = row[10]&.value # Actual Sailing  Date
-      _12_value = row[11]&.value # Final Port of Arrival
-      _13_value = row[12]&.value # ETA Port (Arrival)
-      _14_value = row[13]&.value # Actual Port Arrival Date
-      _15_value = row[14]&.value # Final Destination
-      _16_value = row[15]&.value # ETA Final Destination
-      _17_value = row[16]&.value # Actual Final Destination Arrival Date
-      # _18_value = row[17]&.value # EMS Status
-      _19_value = row[18]&.value # Custom Clearance (Y/N)
-      # _20_value = row[19]&.value # Grounded Date
-      _21_value = row[20]&.value # Status
-      # _22_value = row[21]&.value # Pre-Alert Sending Date
-      _23_value = row[22]&.value # Container Size
-      _24_value = row[23]&.value # Piece(s)
-      _25_value = row[24]&.value # Weight in KGS    (G.W.)
-      _26_value = row[25]&.value # Volume (CBM)
-      # _27_value = row[26]&.value # Terminal (Seaport)
-      # _28_value = row[27]&.value # Rail Terminal
-      # _29_value = row[28]&.value # Warehouse
-      # _30_value = row[29]&.value # Last Free Day
-      # _31_value = row[30]&.value # Pick Up Date
-      # _32_value = row[31]&.value # Empty Return Date
-      # _33_value = row[32]&.value # Invoice Issue Date
-      # _34_value = row[33]&.value # Payment Date
-      _35_value = row[34]&.value # PIC
-      _36_value = row[35]&.value # SHIPMENT STATUS SEND DATE (ETD plus 10 days), EXCEPT FOR AIR (ONCE BOOKING IS CONFIRMED)
-      _37_value = row[36]&.value # SHIPPER
-      _38_value = row[37]&.value # CONSIGNEE
-      _39_value = row[38]&.value # PO NUMBER
-      _40_value = row[39]&.value # RECIPIENT EMAIL
-
       column_1_value = row[0]&.value # Mode
       column_2_value = row[1]&.value # Type
       column_3_value = row[2]&.value # Reference File Number
@@ -137,7 +96,7 @@ class ImportExcelService
         }
 
         # Debug use
-        Rails.logger.info "Debugging with shipment data : #{ocean_shipment_data}"
+        # Rails.logger.info "Debugging with shipment data : #{ocean_shipment_data}"
 
         begin
           # Checking for values
@@ -189,7 +148,7 @@ class ImportExcelService
         }
 
         # Debug use
-        Rails.logger.info "Debugging with shipment data : #{air_shipment_data}"
+        # Rails.logger.info "Debugging with shipment data : #{air_shipment_data}"
 
         begin
           # Checking for values

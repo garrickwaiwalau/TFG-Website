@@ -8,8 +8,9 @@ class TrackingController < ApplicationController
 
     @air_shipments = AirShipment.where(tracking_id: @tracking_id)
     @ocean_shipments = OceanShipment.where(tracking_id: @tracking_id)
-    Rails.logger.debug "Found Air Shipments: #{@air_shipments.count}"
-    Rails.logger.debug "Found Ocean Shipments: #{@ocean_shipments.count}"
+
+    # Rails.logger.debug "Found Air Shipments: #{@air_shipments.count}"
+    # Rails.logger.debug "Found Ocean Shipments: #{@ocean_shipments.count}"
   end
 
   def search

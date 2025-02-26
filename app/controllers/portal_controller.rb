@@ -7,7 +7,7 @@ class PortalController < ApplicationController
 
   def upload
     Rails.logger.info "Uploading shipment file"
-    Rails.logger.debug "Params received: #{params.inspect}"
+    # Rails.logger.debug "Params received: #{params.inspect}"
 
     if params[:file].present?
       file = params[:file]
