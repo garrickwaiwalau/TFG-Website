@@ -69,9 +69,9 @@ env:
 
 # Use a different ssh user than root
 #
-ssh:
-  user: root
-  key: ~/.ssh/id_ed25519
+# ssh:
+#   user: root
+# key: ~/.ssh/id_ed25519
 
 # Use a persistent storage volume.
 #
