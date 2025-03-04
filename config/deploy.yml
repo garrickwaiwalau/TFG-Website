@@ -7,7 +7,11 @@ image: garricklww/tfg-website
 # Deploy to these servers.
 servers:
   web:
-    - 82.29.155.181
+    hosts:
+      - 82.29.155.181
+    volumes:
+    - /app/public/assets:/app/public/assets
+    - app_storage:/app/storage
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -75,8 +79,8 @@ env:
 
 # Use a persistent storage volume.
 #
-volumes:
- - "app_storage:/app/storage"
+# volumes:
+#  - "app_storage:/app/storage"
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
