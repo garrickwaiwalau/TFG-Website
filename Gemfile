@@ -49,8 +49,8 @@ gem "rufus-scheduler" # Required for running as a background process
 # deploying tool
 gem "kamal"
 
-# postgresql gem
-gem "pg"
+# Use sqlite3 as the database for Active Record
+gem "sqlite3", ">= 1.4"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -72,9 +72,6 @@ group :development, :test do
 
   # manage environment variables during development and testing
   gem "dotenv-rails"
-
-  # Use sqlite3 as the database for Active Record
-  gem "sqlite3", ">= 1.4"
 end
 
 group :development do
