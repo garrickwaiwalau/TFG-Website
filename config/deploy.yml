@@ -79,14 +79,14 @@ env:
 # volumes:
 #  - "app_storage:/app/storage"
 volumes:
- - /app/public/assets:/app/public/assets
+ - /public/assets:/public/assets
  - "app_storage:/app/storage"
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
 # version inside the asset_path.
 #
-asset_path: /app/assets
+asset_path: /public/assets
 
 # Configure rolling deploys by setting a wait time between batches of restarts.
 #
