@@ -49,12 +49,13 @@ gem "rufus-scheduler" # Required for running as a background process
 # deploying tool
 gem "kamal"
 
+# postgresql gem
+gem "pg"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 #
 # group :production do
-  # postgresql gem
-  # gem "pg"
 # end
 
 group :development, :test do
