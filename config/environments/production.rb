@@ -108,7 +108,21 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Enable DNS rebinding protection and other `Host` header attacks.
-  config.hosts << "tfglog.ca"
+
+  config.hosts = [
+    IPAddr.new("0.0.0.0/0"),        # All IPv4 addresses.
+    IPAddr.new("::/0"),             # All IPv6 addresses.
+    "localhost",                    # The localhost reserved domain.
+    "tfglog.ca",
+    /.*\.tfglog\.ca/,
+    "tfglog.com",
+    /.*\.tfglog\.com/,
+    "trustfreightglobal.ca",
+    /.*\.trustfreightglobal\.ca/,
+    "trustfreightglobal.com",
+    /.*\.trustfreightglobal\.com/
+  ]
+  # config.hosts << "tfglog.ca"
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
   #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
