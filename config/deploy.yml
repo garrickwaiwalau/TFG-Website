@@ -9,6 +9,9 @@ servers:
   web:
     hosts:
       - 82.29.155.181
+    deploy_timeout: 120s
+    # Increased timeout
+    drain_timeout: 30s
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -27,9 +30,6 @@ proxy:
     - trustfreightglobal.ca
   # Proxy connects to your container on port 80 by default.
   app_port: 8080
-  deploy_timeout: 120s
-  # Increased timeout
-  drain_timeout: 30s
 
 # Credentials for your image host.
 registry:
