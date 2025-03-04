@@ -1,8 +1,8 @@
 # Name of your application. Used to uniquely configure containers.
-service: TFG-Website
+service: tfg-website
 
 # Name of the container image.
-image: garricklww/TFG-Website
+image: garricklww/tfg-website
 
 # Deploy to these servers.
 servers:
@@ -69,8 +69,9 @@ env:
 
 # Use a different ssh user than root
 #
-# ssh:
-#   user: app
+ssh:
+  user: root
+  key: ~/.ssh/id_ed25519
 
 # Use a persistent storage volume.
 #

@@ -81,7 +81,8 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
-  database: tfg_website_production
-  username: tfg_website
-  password: <%= ENV["TFG_WEBSITE_DATABASE_PASSWORD"] %>
+  database: db/production.sqlite3
+#  adapter: postgresql
+#  database: tfg_website_production
+#  username: tfg_website
+#  password: <%= ENV["TFG_WEBSITE_DATABASE_PASSWORD"] %>
