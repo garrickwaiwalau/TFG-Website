@@ -26,6 +26,7 @@ proxy:
     - trustfreightglobal.ca
   # Proxy connects to your container on port 80 by default.
   app_port: 8080
+  port: 8080
 
 # Credentials for your image host.
 registry:
