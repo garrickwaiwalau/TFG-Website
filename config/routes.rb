@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   get "portal", to: "portal#portal", as: "portal"
   post "portal", to: "portal#upload", as: "portal_upload"
   post "portal", to: "portal#login", as: "portal_login"
+
+  # Health check endpoint for Kamal and load balancers
+  get "/up", to: proc { [200, {}, ["OK"]] }
 end
