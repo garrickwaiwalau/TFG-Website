@@ -70,6 +70,6 @@ USER 1000:1000
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 8080
+EXPOSE 3000
 # CMD ["./bin/rails", "server"]
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "8080"]
+CMD ["rails", "server", "-b", "0.0.0.0"]
