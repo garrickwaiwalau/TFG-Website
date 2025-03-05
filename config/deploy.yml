@@ -87,6 +87,14 @@ volumes:
 #
 asset_path: /rails/public/assets
 
+accessories:
+  web:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 # Configure rolling deploys by setting a wait time between batches of restarts.
 #
 # boot:
