@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2025_01_30_183908) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "air_shipments", force: :cascade do |t|
     t.string "reference_number", null: false
     t.string "tracking_id", null: false
@@ -118,7 +121,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_30_183908) do
     t.decimal "width", precision: 10, scale: 2
     t.decimal "height", precision: 10, scale: 2
     t.decimal "weight", precision: 10, scale: 2
-    t.integer "quote_id", null: false
+    t.bigint "quote_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quote_id"], name: "index_products_on_quote_id"
