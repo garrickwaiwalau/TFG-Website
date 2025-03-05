@@ -25,7 +25,6 @@ threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 port ENV.fetch("PORT", 8080)
-environment ENV.fetch("RAILS_ENV", "production")
 bind "tcp://0.0.0.0:8080"  # Bind to all interfaces
 
 # Allow puma to be restarted by `bin/rails restart` command.
