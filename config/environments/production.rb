@@ -114,13 +114,13 @@ Rails.application.configure do
     IPAddr.new("::/0"),             # All IPv6 addresses.
     "localhost",                    # The localhost reserved domain.
     "tfglog.ca",
-    /.*\.tfglog\.ca/,
-    "tfglog.com",
-    /.*\.tfglog\.com/,
-    "trustfreightglobal.ca",
-    /.*\.trustfreightglobal\.ca/,
-    "trustfreightglobal.com",
-    /.*\.trustfreightglobal\.com/
+    /.*\.tfglog\.ca/
+    # "tfglog.com",
+    # /.*\.tfglog\.com/,
+    # "trustfreightglobal.ca",
+    # /.*\.trustfreightglobal\.ca/,
+    # "trustfreightglobal.com",
+    # /.*\.trustfreightglobal\.com/
   ]
   # config.hosts << "tfglog.ca"
   # config.hosts = [
