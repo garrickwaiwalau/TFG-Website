@@ -49,8 +49,10 @@ gem "rufus-scheduler" # Required for running as a background process
 # deploying tool
 gem "kamal"
 
+gem "pg"
+
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 1.4"
+# gem "sqlite3", ">= 1.4"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

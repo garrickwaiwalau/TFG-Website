@@ -79,7 +79,7 @@ env:
 # volumes:
 #  - "app_storage:/app/storage"
 volumes:
- - "my_app_storage:/rails/storage"
+ - "myapp_storage:/rails/storage"
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
@@ -94,7 +94,20 @@ asset_path: /rails/public/assets
 #   wait: 2
 
 # Use accessory services (secrets come from .kamal/secrets).
-#
+accessories:
+ db:
+   image: postgres:16
+   host: 82.29.155.181
+   port: 5432:5432
+   env:
+     clear:
+       POSTGRES_USER: pguser
+       POSTGRES_DB: tfg_production
+     secret:
+       - POSTGRES_PASSWORD
+   directories:
+     - data:/var/lib/postgresql/data
+
 # accessories:
 #   db:
 #     image: mysql:8.0
@@ -116,17 +129,3 @@ asset_path: /rails/public/assets
 #     port: 6379
 #     directories:
 #       - data:/data
-
-#accessories:
-#postgres:
-#  image: postgres:17
-#  host: 82.29.155.181
-#  port: 5432:5432
-#  env:
-#    clear:
-#      POSTGRES_USER: postgres
-#      POSTGRES_DB: tfg_production
-#    secret:
-#      - POSTGRES_PASSWORD
-#  directories:
-#    - data:/var/lib/postgresql/data
