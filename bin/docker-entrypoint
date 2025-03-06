@@ -5,9 +5,17 @@ if [ -z "${LD_PRELOAD+x}" ] && [ -f /usr/lib/*/libjemalloc.so.2 ]; then
   export LD_PRELOAD="$(echo /usr/lib/*/libjemalloc.so.2)"
 fi
 
-# If running the rails server then create or migrate existing database
-if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
-  ./bin/rails db:prepare
+# If running the Rails server, check & prepare the database
+if [[ "$1" == "bundle" && "$2" == "exec" && "$3" == "rails" && "$4" == "server" ]]; then
+  echo "Running database migrations..."
+  if ! ./bin/rails db:prepare; then
+    echo "Database migration failed. Exiting..."
+    exit 1
+  fi
 fi
 
-exec "${@}"
+# Log command being executed
+echo "Executing: $@"
+
+# Replace the shell process with the command
+exec "$@"
