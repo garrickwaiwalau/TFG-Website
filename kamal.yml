@@ -1,6 +1,7 @@
 healthcheck:
-  path: "/up"
+  cmd: "curl -f http://localhost:3000"
   port: 3000
-  interval: 5s
-  timeout: 2s
-  retries: 3
+  path: /up
+  interval: 10s
+  timeout: 5s
+  max_attempts: 5

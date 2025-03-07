@@ -88,14 +88,14 @@ volumes:
 #
 asset_path: /rails/public/assets
 
-
-healthcheck:
-  cmd: "curl -f http://localhost:3000"
-  port: 3000
-  path: /up
-  interval: 10s
-  timeout: 5s
-  max_attempts: 5
+# healthcheck enabled in kamal.yml
+#healthcheck:
+#  cmd: "curl -f http://localhost:3000"
+#  port: 3000
+#  path: /up
+#  interval: 10s
+#  timeout: 5s
+#  max_attempts: 5
 
 # Configure rolling deploys by setting a wait time between batches of restarts.
 #
