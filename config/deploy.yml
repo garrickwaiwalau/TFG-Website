@@ -26,7 +26,14 @@ proxy:
 #    - trustfreightglobal.ca
 #    - trustfreightglobal.com
   # Proxy connects to your container on port 80 by default.
-  # app_port: 3000
+  app_port: 3000
+  healthcheck:
+    cmd: "curl -f http://localhost:3000"
+    port: 3000
+    path: /up
+    interval: 20s
+    timeout: 5s
+    max_attempts: 5
 
 # Credentials for your image host.
 registry:
@@ -58,11 +65,6 @@ env:
    - RAILS_MASTER_KEY
    - DATABASE_PASSWORD
 
-# console: app exec --interactive --reuse "bin/rails console"
-# shell: app exec --interactive --reuse "bash"
-# logs: app logs -f
-# dbc: app exec --interactive --reuse "bin/rails dbconsole"
-
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal app logs -r job" will tail logs from the first server in the job section.
 #
@@ -78,9 +80,7 @@ env:
 # Use a persistent storage volume.
 #
 # volumes:
-#  - "app_storage:/app/storage"
-volumes:
- - "myapp_storage:/rails/storage"
+#  - "app_storage:/rails/storage"
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
