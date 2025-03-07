@@ -22,9 +22,9 @@ proxy:
   ssl: true
   hosts:
     - tfglog.ca
-#    - tfglog.com
-#    - trustfreightglobal.ca
-#    - trustfreightglobal.com
+    - tfglog.com
+    - trustfreightglobal.ca
+    - trustfreightglobal.com
   # Proxy connects to your container on port 80 by default.
   app_port: 3000
   healthcheck:
