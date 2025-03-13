@@ -49,7 +49,12 @@ gem "rufus-scheduler" # Required for running as a background process
 # deploying tool
 gem "kamal"
 
+# postgresql database
 gem "pg"
+
+# microsoft graph for uploading files
+gem "rest-client"
+gem "ffi"
 
 # Use sqlite3 as the database for Active Record
 # gem "sqlite3", ">= 1.4"

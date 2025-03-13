@@ -16,7 +16,7 @@
       <p class="max-w-md mx-auto py-6 text-gray-500 ">Please select your file below</p>
 
       <%= form_with url: portal_upload_path, method: :post, multipart: true do |form| %>
-        <%= form.file_field :file %>
+        <%= form.file_field :file, accept: ".xlsx" %>
         <%= form.submit "Upload File", class: "inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white" %>
       <% end %>
     </div>

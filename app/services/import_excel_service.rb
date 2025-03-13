@@ -1,4 +1,6 @@
 # app/services/import_excel_service.rb
+require "zip"
+
 class ImportExcelService
   def initialize(file)
     @file = file
@@ -10,6 +12,15 @@ class ImportExcelService
     idx = 0
     standard_ocean_status = ENV["STANDARD_OCEAN_STATUS"].split(", ") # Convert ENV string to an array
     standard_air_status = ENV["STANDARD_AIR_STATUS"].split(", ") # Convert ENV string to an array
+
+    # Macro detection
+    Zip::File.open(@file.path) do |zip_file|
+      zip_file.each do |entry|
+        if entry.name.include?("vbaProject.bin") # VBA macros exist
+          raise StandardError, "Excel files with macros are not allowed."
+        end
+      end
+    end
 
     # Iterate over each row, starting from row 2 (to skip headers)
     sheet.each_row_streaming(offset: 1, pad_cells: true) do |row|
