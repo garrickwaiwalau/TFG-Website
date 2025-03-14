@@ -64,6 +64,9 @@ env:
 
  secret:
    - RAILS_MASTER_KEY
+   - DATABASE_HOST
+   - DATABASE_PORT
+   - DATABASE_USERNAME
    - DATABASE_PASSWORD
    - COMPANY_EMAIL
    - COMPANY_EMAIL_PASSWORD
@@ -73,6 +76,10 @@ env:
    - STANDARD_OCEAN_STATUS
    - STANDARD_AIR_STATUS
    - WEB_CONCURRENCY
+   - ONEDRIVE_CLIENT_ID
+   - ONEDRIVE_CLIENT_SECRET
+   - ONEDRIVE_TENANT_ID
+   - ONEDRIVE_DRIVE_ID
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal app logs -r job" will tail logs from the first server in the job section.
