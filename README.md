@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[TFG Website]
 
-Things you may want to cover:
+A web-based tracking and shipment file upload system, built with Ruby on Rails and Tailwind CSS, designed to streamline logistics and shipment management.
 
-* Ruby version
 
-* System dependencies
+Features
 
-* Configuration
+✅ Tracking System – Enables users to monitor shipments in real-time.
 
-* Database creation
+✅ File Upload Functionality – Allows users to upload shipment-related files efficiently.
 
-* Database initialization
+✅ Scalable Deployment – Deployed using Kamal and Docker for seamless CI/CD.
 
-* How to run the test suite
+✅ Optimized Hosting – Hosted on a Hostinger VPS, with PostgreSQL as the database backend.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Tech Stack
 
-* ...
+Backend: Ruby 3.3.5 / Ruby on Rails 7.2.2.1
+
+Frontend: Tailwind CSS 3.0
+
+Database: PostgreSQL 16
+
+Deployment: Kamal, Docker, VPS (Hostinger)
+
+Background Job Schedule: Rufus Scheduler
+
+Email API: SendGrid
