@@ -1,10 +1,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: 82.29.155.181
-  port: 5432
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: tfguser
+  username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
 
 development:

@@ -20,30 +20,36 @@ class PortalController < ApplicationController
       end
 
       if file.content_type == allowed_format
-
         # Process the file
         begin
           ImportExcelService.new(file).process
-
-          # Upload to OneDrive
-          # one_drive = OneDriveService.new
-          # response = one_drive.upload_file(file.path, file.original_filename)
-          #
-          # if response
-          #   File.delete(file.path) # Delete local file after upload
-          #   Rails.logger.info "Shipment file uploaded to OneDrive successfully"
-          # else
-          #   Rails.logger.info "Shipment file failed to upload to OneDrive"
-          # end
-
           Rails.logger.info "Shipment file uploaded successfully"
-          redirect_to portal_path, notice: "File imported successfully!"
         rescue StandardError => e
           Rails.logger.error "Error during file processing: #{e.message}"
           redirect_to portal_path, alert: e.message
         rescue => e
           Rails.logger.error "Error during file processing: #{e.message}"
           redirect_to portal_path, alert: "An error occurred while importing the file."
+        end
+
+        # Upload to OneDrive
+        begin
+          one_drive = OneDriveService.new
+          response = one_drive.upload_file(file.path, file.original_filename)
+
+          if response
+            # Delete local temp file after upload
+            file.tempfile.close
+            file.tempfile.unlink if file.tempfile
+            Rails.logger.info "Shipment file uploaded to OneDrive successfully"
+            redirect_to portal_path, notice: "File imported successfully!"
+          else
+            Rails.logger.error "Shipment file failed to upload to OneDrive"
+            redirect_to portal_path, notice: "File imported successfully!", alert: "File failed to upload to OneDrive! Please contact IT support."
+          end
+        rescue => err
+          Rails.logger.error "Error during file uploading: #{err.message}"
+          redirect_to portal_path, notice: "File imported successfully!", alert: "File failed to upload to OneDrive! Please contact IT support."
         end
       else
         redirect_to portal_path, alert: "Invalid file format. Only .xlsx files are allowed."

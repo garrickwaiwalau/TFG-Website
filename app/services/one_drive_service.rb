@@ -6,6 +6,8 @@ class OneDriveService
   CLIENT_ID = ENV['ONEDRIVE_CLIENT_ID']
   CLIENT_SECRET = ENV['ONEDRIVE_CLIENT_SECRET']
   TENANT_ID = ENV['ONEDRIVE_TENANT_ID']
+  DRIVE_ID = ENV['ONEDRIVE_DRIVE_ID']
+
   REDIRECT_URI = "http://localhost:3000/auth/microsoft/callback"
 
   def initialize
@@ -17,10 +19,12 @@ class OneDriveService
     folder_name = "Uploaded Shipment Files"
 
     # Encode spaces and special characters in the path
-    encoded_path = CGI.escape("#{folder_name}/#{file_name}")
+    file_name_timestamp = file_name.gsub(".xlsx", "_#{Time.now.strftime('%Y%m%d%H%M%S')}.xlsx")
+    upload_file_path = "#{folder_name}/#{file_name_timestamp}"
+    encoded_file_path = upload_file_path.gsub(" ", "%20")
 
     # Construct the correct URL
-    url = "https://graph.microsoft.com/v1.0/me/drive/root:/#{encoded_path}:/content"
+    url = "https://graph.microsoft.com/v1.0/drives/#{DRIVE_ID}/root:/#{encoded_file_path}:/content"
 
     file = File.open(file_path, "rb")
 

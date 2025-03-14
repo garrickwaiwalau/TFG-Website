@@ -210,7 +210,7 @@
 
     // Hiding flash message
     function hideFlash() {
-        var flash_message = document.getElementById('flash_message');
-        flash_message.style.display = 'none';
+        var flashMessages = document.querySelectorAll('.flash_message'); // Select all elements with class
+        flashMessages.forEach(flash => flash.style.display = 'none');
     }
 </script>
