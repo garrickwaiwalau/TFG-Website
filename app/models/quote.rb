@@ -1,4 +1,5 @@
 class Quote < ApplicationRecord
+  attr_accessor :honeypot_field
   # Allow nested attributes for products
   has_many :products, dependent: :destroy
   accepts_nested_attributes_for :products, allow_destroy: true

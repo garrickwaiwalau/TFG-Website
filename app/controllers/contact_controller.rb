@@ -6,8 +6,15 @@ class ContactController < ApplicationController
   end
 
   def submit
-    @contact = Contact.new(contact_params)
+    # Honeypot spam detection: Exit early if bot submission detected
+    if contact_params[:honeypot_field].present?
+      Rails.logger.warn "Spam detected via honeypot field."
+      session[:spam_detected] = true
 
+      return redirect_to contact_path
+    end
+
+    @contact = Contact.new(contact_params)
     # logging
     Rails.logger.info "Contact data : #{@contact}"
 
@@ -23,8 +30,8 @@ class ContactController < ApplicationController
     else
       # logging
       Rails.logger.warn "Contact data unable to save"
+      Rails.logger.error @contact.errors.full_messages # Log the validation errors
 
-      puts @contact.errors.full_messages # Log the validation errors
       redirect_to contact_path, alert: "There was an issue with your submission."
     end
   end
@@ -32,6 +39,6 @@ class ContactController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :services, :email, :phone, :subject, :message)
+    params.require(:contact).permit(:first_name, :last_name, :services, :email, :phone, :subject, :message, :honeypot_field)
   end
 end

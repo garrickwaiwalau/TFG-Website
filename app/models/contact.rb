@@ -1,4 +1,5 @@
 class Contact < ApplicationRecord
+  attr_accessor :honeypot_field
   validates :first_name, :last_name, :services, :email, :subject, :message, presence: true
   validates :reference_number, uniqueness: true
   # No validation for phone, so it can be left blank

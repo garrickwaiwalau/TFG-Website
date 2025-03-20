@@ -7,10 +7,18 @@ class QuoteController < ApplicationController
   end
 
   def submit
-    @quote = Quote.new(quote_params)
+    # Honeypot spam detection: Exit early if bot submission detected
+    if quote_params[:honeypot_field].present?
+      Rails.logger.warn "Spam detected via honeypot field."
+      session[:spam_detected] = true
 
+      return redirect_to quote_path
+    end
+
+    @quote = Quote.new(quote_params)
     # logging
     Rails.logger.info "Quote data : #{@quote}"
+
     if @quote.save
       # Send the email
       UserMailer.quote_form(@quote).deliver_now
@@ -23,8 +31,8 @@ class QuoteController < ApplicationController
     else
       # logging
       Rails.logger.warn "Quote data unable to save"
+      Rails.logger.error @quote.errors.full_messages # Log the validation errors
 
-      puts @quote.errors.full_messages # Log the validation errors
       redirect_to quote_path, alert: "There was an issue with your submission."
     end
   end
@@ -77,10 +85,10 @@ class QuoteController < ApplicationController
       :marketing_use, # Where did you hear about us?
       :customs_clearance, # Do you require customs clearance?
       :existing_customer, # Are you an existing customer?
-      :message, # Comment/ message area
+      :comment, # Comment/ message area
+      :honeypot_field, # Honeypot field to avoid spams
       # Package / Cargo Information
-      products_attributes: [:quantity, :packagingType, :length, :width, :height, :weight] # product information by air
+      products_attributes: [ :quantity, :packagingType, :length, :width, :height, :weight ] # product information by air
     )
   end
-
 end
