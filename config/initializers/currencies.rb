@@ -1,1 +1,1 @@
-CURRENCIES = ['USD', 'EUR', 'GBP', 'CAD', 'AUD']
+CURRENCIES = [ "USD", "EUR", "GBP", "CAD", "AUD" ]

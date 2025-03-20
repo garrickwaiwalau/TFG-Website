@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'auth', skip: [:registrations, :passwords]
+  devise_for :users, path: "auth", skip: [ :registrations, :passwords ]
 
   root "index#index"
 

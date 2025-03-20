@@ -30,7 +30,7 @@ class Rack::Attack
 
   self.throttled_responder = lambda do |_env|
     html = ActionView::Base.empty.render(file: "public/403.html")
-    [403, {"Content-Type" => "text/html"}, [html]]
+    [ 403, { "Content-Type" => "text/html" }, [ html ] ]
   end
 
   ### Custom Throttle Response ###
