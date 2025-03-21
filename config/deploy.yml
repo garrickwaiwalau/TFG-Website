@@ -116,7 +116,7 @@ accessories:
     volumes:
       - redis:/data
 volumes:
-  redis:
+  - redis
 
 # healthcheck enabled in kamal.yml
 #healthcheck:
