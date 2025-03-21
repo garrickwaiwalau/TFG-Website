@@ -108,8 +108,6 @@ asset_path: /rails/public/assets
 accessories:
   redis:
     image: redis:latest
-    roles:
-      - web
     host: 82.29.155.181
     port: 6379
     cmd: "redis-server"
