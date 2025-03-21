@@ -58,6 +58,9 @@ gem "tailwindcss-rails", "~> 3.0"
 gem "devise", "~> 4.9"
 
 gem "redis", "~> 5.4"
+gem "redis-rails"
+gem "redis-activesupport"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
