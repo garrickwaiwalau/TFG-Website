@@ -56,30 +56,31 @@ builder:
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 #
 env:
- clear:
-   # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
-   # When you start using multiple servers, you should split out job processing to a dedicated machine.
-   # DB_HOST: 192.168.0.2
-   SOLID_QUEUE_IN_PUMA: true
+  clear:
+    # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
+    # When you start using multiple servers, you should split out job processing to a dedicated machine.
+    # DB_HOST: 192.168.0.2
+    SOLID_QUEUE_IN_PUMA: true
 
- secret:
-   - RAILS_MASTER_KEY
-   - DATABASE_HOST
-   - DATABASE_PORT
-   - DATABASE_USERNAME
-   - DATABASE_PASSWORD
-   - COMPANY_EMAIL
-   - COMPANY_EMAIL_PASSWORD
-   - CONTACT_FORM_RECIPIENT
-   - QUOTE_FORM_RECIPIENT
-   - SENDGRID_API_KEY
-   - STANDARD_OCEAN_STATUS
-   - STANDARD_AIR_STATUS
-   - WEB_CONCURRENCY
-   - ONEDRIVE_CLIENT_ID
-   - ONEDRIVE_CLIENT_SECRET
-   - ONEDRIVE_TENANT_ID
-   - ONEDRIVE_DRIVE_ID
+  secret:
+    - RAILS_MASTER_KEY
+    - DATABASE_HOST
+    - DATABASE_PORT
+    - DATABASE_USERNAME
+    - DATABASE_PASSWORD
+    - COMPANY_EMAIL
+    - COMPANY_EMAIL_PASSWORD
+    - CONTACT_FORM_RECIPIENT
+    - QUOTE_FORM_RECIPIENT
+    - SENDGRID_API_KEY
+    - STANDARD_OCEAN_STATUS
+    - STANDARD_AIR_STATUS
+    - WEB_CONCURRENCY
+    - ONEDRIVE_CLIENT_ID
+    - ONEDRIVE_CLIENT_SECRET
+    - ONEDRIVE_TENANT_ID
+    - ONEDRIVE_DRIVE_ID
+    - REDIS_URL
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal app logs -r job" will tail logs from the first server in the job section.
@@ -103,6 +104,14 @@ env:
 # version inside the asset_path.
 #
 asset_path: /rails/public/assets
+
+accessories:
+  redis:
+    image: redis:latest
+    host: 82.29.155.181
+    port: 6379
+    directories:
+      - data:/data
 
 # healthcheck enabled in kamal.yml
 #healthcheck:
@@ -133,25 +142,3 @@ asset_path: /rails/public/assets
 #       - POSTGRES_PASSWORD
 #   directories:
 #     - data:/var/lib/postgresql/data
-
-# accessories:
-#   db:
-#     image: mysql:8.0
-#     host: 192.168.0.2
-#     port: 3306
-#     env:
-#       clear:
-#         MYSQL_ROOT_HOST: '%'
-#       secret:
-#         - MYSQL_ROOT_PASSWORD
-#     files:
-#       - config/mysql/production.cnf:/etc/mysql/my.cnf
-#       - db/production.sql:/docker-entrypoint-initdb.d/setup.sql
-#     directories:
-#       - data:/var/lib/mysql
-#   redis:
-#     image: valkey/valkey:8
-#     host: 192.168.0.2
-#     port: 6379
-#     directories:
-#       - data:/data
