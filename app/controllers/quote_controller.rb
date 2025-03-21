@@ -27,7 +27,7 @@ class QuoteController < ApplicationController
       Rails.logger.info "Quote data # #{@quote.id} saved"
 
       # Redirect or render a success page
-      redirect_to quote_path, notice: "Your quote form has been sent successfully! Your reference number is: #{@quote.reference_number}.".html_safe
+      redirect_to quote_path, notice: "Your quote form has been sent successfully! Your reference number is: #{@quote.reference_number}."
     else
       # logging
       Rails.logger.warn "Quote data unable to save"

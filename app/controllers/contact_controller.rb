@@ -26,7 +26,7 @@ class ContactController < ApplicationController
       Rails.logger.info "Contact data # #{@contact.id} saved"
 
       # Redirect or render a success page
-      redirect_to contact_path, notice: "Your message has been sent successfully! Your reference number is: #{@contact.reference_number}.".html_safe
+      redirect_to contact_path, notice: "Your message has been sent successfully! Your reference number is: #{@contact.reference_number}."
     else
       # logging
       Rails.logger.warn "Contact data unable to save"
