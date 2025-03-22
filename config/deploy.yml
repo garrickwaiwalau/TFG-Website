@@ -111,8 +111,10 @@ accessories:
     host: 82.29.155.181
     port: 6379
     cmd: "redis-server"
+    network: kamal
     volumes:
       - redis:/data
+
 volumes:
   - redis
 
