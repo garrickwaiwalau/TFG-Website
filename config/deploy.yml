@@ -109,7 +109,7 @@ accessories:
   redis:
     image: redis:latest
     host: 82.29.155.181
-    cmd: "redis-server"
+    cmd: "redis-server --bind 127.0.0.1"
     network: kamal
     volumes:
       - redis:/data
