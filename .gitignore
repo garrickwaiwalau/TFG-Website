@@ -40,3 +40,4 @@
 
 # kamal
 /.kamal/secrets
+/.kamal/redis.yml
