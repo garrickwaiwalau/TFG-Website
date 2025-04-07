@@ -81,6 +81,7 @@ env:
     - ONEDRIVE_TENANT_ID
     - ONEDRIVE_DRIVE_ID
     - REDIS_URL
+    - REDIS_PASSWORD
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal app logs -r job" will tail logs from the first server in the job section.
@@ -108,8 +109,9 @@ asset_path: /rails/public/assets
 accessories:
   redis:
     image: redis:latest
-    host: 82.29.155.181
-    cmd: "redis-server --bind 127.0.0.1"
+    roles:
+      - web
+    cmd: "redis-server --bind 127.0.0.1 --protected-mode yes --requirepass ${REDIS_PASSWORD}"
     network: kamal
     volumes:
       - redis:/data
