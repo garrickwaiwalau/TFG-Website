@@ -41,3 +41,4 @@
 # kamal
 /.kamal/secrets
 /.kamal/redis
+/config/redis/redis.conf
