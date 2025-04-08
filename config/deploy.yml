@@ -110,11 +110,11 @@ accessories:
     image: redis:latest
     roles:
       - web
-    cmd: "redis-server /etc/redis/redis.conf"
+    cmd: "redis-server /usr/local/etc/redis/redis.conf"
     network: kamal
     volumes:
       - redis:/data
-      - ./config/redis/redis.conf:/etc/redis/redis.conf:ro
+      - /rails/config/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
 
 volumes:
   - redis
