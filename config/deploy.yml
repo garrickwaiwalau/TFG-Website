@@ -114,7 +114,7 @@ accessories:
     network: kamal
     volumes:
       - redis:/data
-      - /rails/config/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
 
 volumes:
   - redis
