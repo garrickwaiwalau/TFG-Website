@@ -53,7 +53,7 @@ gem "ffi"
 # rate-limiting
 gem "rack-attack"
 
-gem "tailwindcss-rails", "~> 3.0"
+gem "tailwindcss-rails", "~> 4.3"
 
 gem "devise", "~> 4.9"
 
