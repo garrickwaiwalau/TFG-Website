@@ -22,10 +22,13 @@ class ImportExcelService
       end
     end
 
+    # Checking for empty rows
+    empty_mode_streak = 0
+
     # Iterate over each row, starting from row 2 (to skip headers)
     sheet.each_row_streaming(offset: 1, pad_cells: true) do |row|
       # Extract data from the row
-      column_1_value = row[0]&.value # Mode
+      column_1_value = row[0]&.value.to_s.strip # Mode
       column_2_value = row[1]&.value # Type
       column_3_value = row[2]&.value # Reference File Number
       column_4_value = row[3]&.value # AWB / HBL Number
@@ -66,6 +69,17 @@ class ImportExcelService
 
       gross_weight_value = column_24_value.to_f
       cbm_value = column_25_value.to_f
+
+      if column_1_value.blank?
+        empty_mode_streak += 1
+        if empty_mode_streak >= 2
+          Rails.logger.info "End of record reached at row #{idx} (two consecutive blank Modes)."
+          return true # success, stop processing further rows
+        end
+        next # skip this row and continue loop
+      else
+        empty_mode_streak = 0 # reset streak if we see a valid cell
+      end
 
       # Conditional logic to decide which table to insert data into
       if column_1_value&.downcase == "ocean"
@@ -120,7 +134,7 @@ class ImportExcelService
           ocean_shipment = OceanShipment.find_or_initialize_by(reference_number: column_3_value)
           ocean_shipment.assign_attributes(ocean_shipment_data) # Update the attributes
           ocean_shipment.save! # Save the record
-          Rails.logger.info "Ocean Shipment record #{ocean_shipment.new_record? ? 'created' : 'updated'} successfully for Reference Number: #{column_3_value}"
+          # Rails.logger.info "Ocean Shipment record #{ocean_shipment.new_record? ? 'created' : 'updated'} successfully for Reference Number: #{column_3_value}"
         rescue ActiveRecord::RecordInvalid => e
           Rails.logger.error "Validation failed for Ocean Shipment: #{e.message}"
           raise
@@ -172,7 +186,7 @@ class ImportExcelService
           air_shipment = AirShipment.find_or_initialize_by(reference_number: column_3_value)
           air_shipment.assign_attributes(air_shipment_data) # Update the attributes
           air_shipment.save! # Save the record
-          Rails.logger.info "Air Shipment record #{air_shipment.new_record? ? 'created' : 'updated'} successfully for Reference Number: #{column_3_value}"
+          # Rails.logger.info "Air Shipment record #{air_shipment.new_record? ? 'created' : 'updated'} successfully for Reference Number: #{column_3_value}"
         rescue ActiveRecord::RecordInvalid => e
           Rails.logger.error "Validation failed for Air Shipment: #{e.message}"
           raise

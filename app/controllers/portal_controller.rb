@@ -26,10 +26,10 @@ class PortalController < ApplicationController
           Rails.logger.info "Shipment file uploaded successfully"
         rescue StandardError => e
           Rails.logger.error "Error during file processing: #{e.message}"
-          redirect_to portal_path, alert: e.message
+          redirect_to portal_path, alert: e.message and return
         rescue => e
           Rails.logger.error "Error during file processing: #{e.message}"
-          redirect_to portal_path, alert: "An error occurred while importing the file."
+          redirect_to portal_path, alert: "An error occurred while importing the file." and return
         end
 
         # Upload to OneDrive
@@ -42,21 +42,21 @@ class PortalController < ApplicationController
             file.tempfile.close
             file.tempfile.unlink if file.tempfile
             Rails.logger.info "Shipment file uploaded to OneDrive successfully"
-            redirect_to portal_path, notice: "File imported successfully!"
+            redirect_to portal_path, notice: "File imported successfully!" and return
           else
             Rails.logger.error "Shipment file failed to upload to OneDrive"
-            redirect_to portal_path, notice: "File imported successfully!", alert: "File failed to upload to OneDrive! Please contact IT support."
+            redirect_to portal_path, notice: "File imported successfully!", alert: "File failed to upload to OneDrive! Please contact IT support." and return
           end
         rescue => err
           Rails.logger.error "Error during file uploading: #{err.message}"
-          redirect_to portal_path, notice: "File imported successfully!", alert: "File failed to upload to OneDrive! Please contact IT support."
+          redirect_to portal_path, notice: "File imported successfully!", alert: "File failed to upload to OneDrive! Please contact IT support." and return
         end
       else
-        redirect_to portal_path, alert: "Invalid file format. Only .xlsx files are allowed."
+        redirect_to portal_path, alert: "Invalid file format. Only .xlsx files are allowed." and return
       end
     else
       Rails.logger.warn "No file provided for upload"
-      redirect_to portal_path, alert: "Please upload a file."
+      redirect_to portal_path, alert: "Please upload a file." and return
     end
   end
 
