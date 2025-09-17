@@ -14,4 +14,8 @@ class UserMailer < ApplicationMailer
     @ocean_shipment = ocean_shipment
     mail(to: @ocean_shipment.pre_alert_email.split(";"), cc: "Import-TOR@trustfreight.ca", subject: "PRE-ALERT / Trust Freight / Ocean Shipment Status / #{@ocean_shipment.reference_number} / #{@ocean_shipment.hbl_number}")
   end
+
+  def test_email(to_email)
+    mail(to: to_email, subject: "Testing Email")
+  end
 end

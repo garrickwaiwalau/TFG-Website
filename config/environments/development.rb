@@ -38,16 +38,16 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = { from: "no-reply@trustfreightglobal.com" }
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: "smtp.sendgrid.net",
-    port: 587,
-    domain: "trustfreightglobal.com", # Replace with your domain
-    user_name: "apikey",  # Use 'apikey' as the username
-    password: ENV["SENDGRID_API_KEY"],  # Set your API key in an environment variable
-    authentication: "plain",
-    enable_starttls_auto: true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.sendgrid.net",
+  #   port: 587,
+  #   domain: "trustfreightglobal.com", # Replace with your domain
+  #   user_name: "apikey",  # Use 'apikey' as the username
+  #   password: ENV["SENDGRID_API_KEY"],  # Set your API key in an environment variable
+  #   authentication: "plain",
+  #   enable_starttls_auto: true
+  # }
 
   # Disable caching for Action Mailer templates even if Action Controller
   # caching is enabled.
