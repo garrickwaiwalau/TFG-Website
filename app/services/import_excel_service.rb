@@ -86,7 +86,7 @@ class ImportExcelService
         # Insert into OceanShipment
         ocean_shipment_data = {
           shipment_type: column_2_value,
-          tracking_id: column_3_value + "@" + column_4_value,
+          tracking_id: "#{column_3_value}@#{column_4_value}",
           reference_number: column_3_value,
           hbl_number: column_4_value,
           mbl_number: column_5_value,
@@ -145,7 +145,7 @@ class ImportExcelService
       elsif column_1_value&.downcase == "air"
         # Insert into AirShipment
         air_shipment_data = {
-          tracking_id: column_3_value + "@" + column_4_value,
+          tracking_id: "#{column_3_value}@#{column_4_value}",
           reference_number: column_3_value,
           hawb_number: column_4_value,
           mawb_number: column_5_value,
